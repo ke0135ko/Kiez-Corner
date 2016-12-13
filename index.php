@@ -1,6 +1,6 @@
     <?php
 // Variable zum Projektverzeichnis, welches unter 'htdocs' liegt (Hinweis: falls das Projekt im ROOT-Verzeichnis liegt, einen Leerstring eintragen.)
-$projectDir = "starter-kit_v16/";
+$projectDir = "Kiez-Corner/";
 
 // Pfadvariable, die zur Steuerung der Inhalt verwendet wird
 // Der Standardwert ist der Pfad zum Inhalt der Startseite
