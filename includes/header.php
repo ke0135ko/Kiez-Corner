@@ -1,6 +1,6 @@
 <header>
     <a class="logo" href="index.php">
-        <img src= "img/logo.png" alt="Logo">
+        <img src="img/background_header.jpg" alt="Background">
     </a>
     <!--Hier spaeter Ausgabe von evtl. zwoschengespeicherten Mitteilungen einfuegen-->
     <nav>
