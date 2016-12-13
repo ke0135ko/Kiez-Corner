@@ -1,0 +1,132 @@
+/* =================== Allgemeine Einstellungen =================== */
+
+*
+{
+    box-sizing: border-box;
+}
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    
+}
+
+body 
+{
+    background-color: #E0E0E0;
+
+}
+
+.clear
+{
+    clear: both;
+    height: 0;
+}
+
+.wrapper 
+{
+    width: 66%;
+    margin: 0 auto;
+}
+
+/* =================== Header =================== */
+
+header, main, footer
+{
+    background-color: #FAFAFA;
+    padding: 10px;
+    margin: 10px 0;
+    font-family: 'Aref Ruqaa', serif;
+}
+
+.logo 
+{
+    float: left;
+}
+
+.logo img 
+{
+    width: 50px;
+    height: 50px;
+}
+
+nav 
+{
+    float: right;
+    margin-top: 6px;
+}
+
+
+nav ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li 
+{
+    list-style-type: none;
+    float: left;
+    margin: 0 2px;
+}
+
+header h3 {
+    /* color: black; */
+    display: inline-block;
+    padding-left: 10px;
+    margin: 10px auto;
+}
+
+header .message {
+    color: darkred;
+}
+nav ul li a
+{
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    color: #9E9E9E;
+}
+
+nav ul li.active a
+{
+    color: #424242;
+}
+
+nav ul li a:hover
+{
+    color: #424242;
+}
+
+/* =================== Content Bereich =================== */
+main
+{
+    color: #9E9E9E;
+}
+
+main h1
+{
+    color: #424242;
+}
+
+main article img 
+{
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 33%;
+    opacity: 0.4;
+}
+
+/* =================== Footer =================== */
+
+footer span
+{
+    color: #9E9E9E;
+    font-size: 11px;
+}
