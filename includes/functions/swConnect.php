@@ -9,7 +9,7 @@
 $server = "localhost";
 $user = "student";
 $pw = "pwa"; 
-$db="sportsworld";
+$db="kiez corner";
 
 //Verbindung zur Datenbank aufnehmen
 $conn = @mysqli_connect($server,$user,$pw,$db);
