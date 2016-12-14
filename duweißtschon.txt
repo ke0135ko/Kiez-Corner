@@ -1,0 +1,55 @@
+Datenbank:
+Member
+	-membernu (primary-key)
+	-name (secondary-key)
+	-address(street, nr)
+	-zip
+	-city
+	-mail
+	-phone
+login
+	-userid
+	-username (secondary-key)
+	-logid (primary-key)
+	-password
+
+requests
+	-author (secondary-key)
+	-descrip
+	-points(max)
+	-address
+	-contact
+	-type
+	-ID(RE1324) (primary-key)
+
+
+offers
+	-author (secondary-key)
+	-descrip
+	-points
+	-address
+	-contact
+	-picture
+	-type
+	-ID(OF1324) (primary key)
+
+pictures
+	-picID(primary-key)
+	-link(file location)
+	-size
+	-membernu(secondary-key)
+	-RE/OF
+Pages:
+
+	-Home
+	-Search
+	-Login
+	-Registrate
+	-Impressum
+	-documentation
+	-Requests
+	-Offers
+	-Profile
+
+
+
