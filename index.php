@@ -42,10 +42,10 @@ if (!empty($_GET['page'])) {
 <!DOCTYPE html>
 <html>
     <head> 
-        <title>HTML/PHP Starter-Kit</title>
+        <title>Kiez Corner</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="author" content="Paul Pestov">
+        <meta name="author" content="Kevin Kosinski, Sascha Schneider">
 
         <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
         <link rel="stylesheet" href="css/screen.css">
