@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 14. Dez 2016 um 13:19
+-- Erstellungszeit: 16. Dez 2016 um 21:06
 -- Server-Version: 10.1.16-MariaDB
 -- PHP-Version: 7.0.9
 
@@ -44,9 +44,10 @@ CREATE TABLE `member` (
   `NAME` varchar(50) COLLATE latin1_general_cs NOT NULL,
   `ADDRESS` varchar(80) COLLATE latin1_general_cs NOT NULL,
   `ZIP` char(5) COLLATE latin1_general_cs NOT NULL,
-  `CITY` varchar(50) COLLATE latin1_general_cs NOT NULL,
+  `CITY` varchar(50) COLLATE latin1_general_cs NOT NULL DEFAULT 'ERFURT',
   `EMAIL` varchar(80) COLLATE latin1_general_cs NOT NULL,
-  `PHONE` varchar(20) COLLATE latin1_general_cs NOT NULL
+  `PHONE` varchar(20) COLLATE latin1_general_cs NOT NULL,
+  `POINTS_ACCOUNT` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 
 -- --------------------------------------------------------
@@ -56,11 +57,13 @@ CREATE TABLE `member` (
 --
 
 CREATE TABLE `offers` (
-  `OFFERID` char(6) COLLATE latin1_general_cs NOT NULL,
+  `OFFERID` int(6) NOT NULL,
   `MEMBERID` int(11) NOT NULL,
+  `OHEADLINE` varchar(50) COLLATE latin1_general_cs NOT NULL,
   `ODESCRIP` varchar(200) COLLATE latin1_general_cs NOT NULL,
-  `OADDRESS` varchar(80) COLLATE latin1_general_cs NOT NULL,
-  `OCONTACT` int(11) NOT NULL,
+  `OZIP` int(5) NOT NULL,
+  `OPHONE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `OMAIL` varchar(80) COLLATE latin1_general_cs DEFAULT NULL,
   `OSCORE` int(2) NOT NULL,
   `PICTURE` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
@@ -84,13 +87,22 @@ CREATE TABLE `pictures` (
 --
 
 CREATE TABLE `requests` (
-  `ID` int(6) NOT NULL,
+  `REQUESTID` int(6) NOT NULL,
   `MEMBERID` int(11) NOT NULL,
+  `RHEADLINE` varchar(50) COLLATE latin1_general_cs NOT NULL,
   `RDESCRIP` varchar(200) COLLATE latin1_general_cs NOT NULL,
-  `ADDRESS` varchar(80) COLLATE latin1_general_cs NOT NULL,
-  `RCONTACT` varchar(80) COLLATE latin1_general_cs NOT NULL,
+  `RZIP` int(5) NOT NULL,
+  `RPHONE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `RMAIL` varchar(80) COLLATE latin1_general_cs DEFAULT NULL,
   `RSCORE` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+--
+-- Daten für Tabelle `requests`
+--
+
+INSERT INTO `requests` (`REQUESTID`, `MEMBERID`, `RHEADLINE`, `RDESCRIP`, `RZIP`, `RPHONE`, `RMAIL`, `RSCORE`) VALUES
+(1, 2147483647, 'BeispielÃ¼berschrift', 'Anzeigentext', 0, 'Kevin Kosinski', NULL, 5);
 
 --
 -- Indizes der exportierten Tabellen
@@ -105,6 +117,14 @@ ALTER TABLE `member`
   ADD KEY `EMAIL` (`EMAIL`);
 
 --
+-- Indizes für die Tabelle `offers`
+--
+ALTER TABLE `offers`
+  ADD PRIMARY KEY (`OFFERID`),
+  ADD KEY `MEMBERID` (`MEMBERID`),
+  ADD KEY `OHEADLINE` (`OHEADLINE`);
+
+--
 -- Indizes für die Tabelle `pictures`
 --
 ALTER TABLE `pictures`
@@ -115,9 +135,24 @@ ALTER TABLE `pictures`
 -- Indizes für die Tabelle `requests`
 --
 ALTER TABLE `requests`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `MEMBERID` (`MEMBERID`);
+  ADD PRIMARY KEY (`REQUESTID`),
+  ADD KEY `MEMBERID` (`MEMBERID`),
+  ADD KEY `RHEADLINE` (`RHEADLINE`);
 
+--
+-- AUTO_INCREMENT für exportierte Tabellen
+--
+
+--
+-- AUTO_INCREMENT für Tabelle `offers`
+--
+ALTER TABLE `offers`
+  MODIFY `OFFERID` int(6) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT für Tabelle `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `REQUESTID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

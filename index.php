@@ -11,9 +11,9 @@ $cssPath = "";
 // Der Name der aktuellen Seite wird in der $page-Variable gespeichert, 
 // welche für die Anzeige des aktiven Navigationselementes benötigt wird.
 $page = "start";
-
+echo $_GET['page'];
 if (!empty($_GET['page'])) {
-
+  
     // Standardpfad zum Ordner der übergebenen Unterseite
     $subPageBasepath = "includes/pages/" . $_GET['page'] . "/";
 
@@ -66,7 +66,7 @@ if (!empty($_GET['page'])) {
             abhängig von Layout weiter Bereiche einfügen (z. B. aside)
             -->
             
-                <?php include("includes/footer.php"); ?>
+<?php include("includes/footer.php"); ?>
         </div>
     </body>
 </html>
