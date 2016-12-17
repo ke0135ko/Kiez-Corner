@@ -1,4 +1,4 @@
-<a  id="requests" href="index.php?page=insert" class="button">Gesuch aufgeben</a>
+<a  id="requests" href="index.php?page=insert" class="button">Inserat aufgeben</a>
 
 <h3>Hier finden Sie alle Gesuche</h3>
 
@@ -7,13 +7,14 @@
 //$memberid = '08155678901';
 //$rheadline = 'Beispielüberschrift';
 //$rdescrip = 'Anzeigentext';
-//$address = 'Schnullerstr. 5';
-//$rcontact = 'Kevin Kosinski';
+//$rzip = '99092';
+//$rphone = '0815-1234';
+//$rmail = 'testmail.com';
 //$rscore = 5;
 //include('includes/functions/dbConnect.php');
 //
 //    $sql="INSERT INTO requests
-//                  VALUES ('$ID1', '$memberid', '$rheadline', '$rdescrip', '$address', '$rcontact', '$rscore')";
+//                 VALUES ('$ID1','$memberid', '$rheadline', '$rdescrip', '$rzip', '$rphone','$rmail', '$rscore')";
 //            if ($conn->query($sql)=== TRUE) {
 //                echo "Produkt erfolgreich eingefügt.<br>";
 //                
@@ -35,8 +36,9 @@
                    $row['MEMBERID']."<br>".
                    $row['RHEADLINE']."<br>".
                    $row['RDESCRIP']."<br>".
-                   $row['RADDRESS']."<br>".
-                   $row['RCONTACT']."<br>".
+                   $row['RZIP']."<br>".
+                   $row['RPHONE']."<br>".
+                   $row['RMAIL']."<br>".
                    $row['RSCORE']."<br></li>";
     }
     include 'includes/functions/dbClose.php';
