@@ -1,12 +1,11 @@
 <?php 
 //generate Session, just for testing
-/*session_save_path("C:\Users\kevin\Documents\Session");
-session_start();*/
+session_save_path('Sessions');
+session_start();
 
 //check for valid Session
 if (!isset($_SESSION)) {
     ?>
-
     <strong>Bitte melden Sie sich an</strong>
     <a  id='requests' href=index.php?page=login class='button'>Anmelden</a>
 <?php } else { ?>
@@ -17,8 +16,8 @@ if (!isset($_SESSION)) {
                 <tbody>
                     <tr>
                         <td><label for="typeAdvertisement">Art des Inserates:</label></td>
-                        <td><select name="typeAdvertisement">
-                                    <option>Angebot</option>
+                        <td><select name="typeAdvertisement" default   >
+                                <option selected="selected" >Angebot</option>
                                     <option>Gesuch</option>
                             </select>
                         </td>
@@ -33,7 +32,7 @@ if (!isset($_SESSION)) {
                     </tr>
                     <tr>
                         <td><label for="Zip">Postleitzahl:</label></td>
-                        <td><input type="number" name="Zip" maxlength="5" required/></td>
+                        <td><input type="number" name="Zip" minlength="5" maxlength="5"  placeholder="99092" required/></td>
                     </tr>
                     <tr>
                         <td><label for="Phone">Telefon:</label></td>

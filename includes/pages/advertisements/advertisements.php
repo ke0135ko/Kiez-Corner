@@ -5,17 +5,19 @@
     
     for ($index = 0; $index < 7; $index++) {
         include('includes/functions/dbConnect.php');
-        $query = "select * from requests";
+        $query = "select * from advertisements";
         $result = mysqli_query($conn, $query);
         $row= mysqli_fetch_array($result);
-        echo "<li>".$row['REQUESTID']."<br>". 
+        echo "<li>".$row['ADVID']."<br>". 
                    $row['MEMBERID']."<br>".
-                   $row['RHEADLINE']."<br>".
-                   $row['RDESCRIP']."<br>".
-                   $row['RZIP']."<br>".
-                   $row['RPHONE']."<br>".
-                   $row['RMAIL']."<br>".
-                   $row['RSCORE']."<br></li>";
+                   $row['ADVTYPE']."<br>".
+                   $row['HEADLINE']."<br>".
+                   $row['DESCRIP']."<br>".
+                   $row['ZIP']."<br>".
+                   $row['PHONE']."<br>".
+                   $row['MAIL']."<br>".
+                   $row['SCORE']."<br>".
+                   $row['SCORE']."</li>";
     }
     include 'includes/functions/dbClose.php';
     ?>  
