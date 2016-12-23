@@ -1,7 +1,7 @@
 <?php 
 //generate Session, just for testing
-session_save_path('Sessions');
-session_start();
+//session_save_path('Sessions');
+//session_start();
 
 //check for valid Session
 if (!isset($_SESSION)) {

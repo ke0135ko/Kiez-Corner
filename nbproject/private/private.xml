@@ -4,9 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/header.php</file>
-            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/insert/insert.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/css/screen.css</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/requests/requests.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/advertisements/advertisements.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/insertForm/insertForm.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/index.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/insert_advertisement.php</file>
         </group>

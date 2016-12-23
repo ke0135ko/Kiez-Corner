@@ -5,9 +5,9 @@
     
     for ($index = 0; $index < 7; $index++) {
         include('includes/functions/dbConnect.php');
-        $query = "select * from advertisements";
-        $result = mysqli_query($conn, $query);
-        $row= mysqli_fetch_array($result);
+        $queryAdv = "select * from advertisements";
+        $resultAdv = mysqli_query($conn, $queryAdv);
+        $row= mysqli_fetch_array($resultAdv);
         echo "<li>".$row['ADVID']."<br>". 
                    $row['MEMBERID']."<br>".
                    $row['ADVTYPE']."<br>".
@@ -17,7 +17,7 @@
                    $row['PHONE']."<br>".
                    $row['MAIL']."<br>".
                    $row['SCORE']."<br>".
-                   $row['SCORE']."</li>";
+                   $row['PICTURE']."</li>";
     }
     include 'includes/functions/dbClose.php';
     ?>  

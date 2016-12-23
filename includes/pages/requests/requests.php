@@ -41,7 +41,7 @@
                    $row['PHONE']."<br>".
                    $row['MAIL']."<br>".
                    $row['SCORE']."<br>".
-                   $row['SCORE']."</li>";
+                   $row['PICTURE']."</li>";
     }
     include 'includes/functions/dbClose.php';
     ?>  

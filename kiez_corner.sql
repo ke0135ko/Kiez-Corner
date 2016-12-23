@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 18. Dez 2016 um 21:44
+-- Erstellungszeit: 23. Dez 2016 um 20:31
 -- Server-Version: 10.1.16-MariaDB
 -- PHP-Version: 7.0.9
 
@@ -36,7 +36,7 @@ CREATE TABLE `advertisements` (
   `PHONE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
   `MAIL` varchar(80) COLLATE latin1_general_cs DEFAULT NULL,
   `SCORE` int(2) NOT NULL,
-  `PICTURE` int(11) DEFAULT NULL
+  `PICTURE` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 
 -- --------------------------------------------------------
@@ -83,7 +83,7 @@ INSERT INTO `member` (`MEMBNO`, `NAME`, `ADDRESS`, `ZIP`, `CITY`, `EMAIL`, `PHON
 --
 
 CREATE TABLE `pictures` (
-  `PICID` int(11) NOT NULL,
+  `PICID` int(6) NOT NULL,
   `MEMBERID` int(11) NOT NULL,
   `NAME` varchar(50) COLLATE latin1_general_cs NOT NULL,
   `TYPE` varchar(10) COLLATE latin1_general_cs NOT NULL,
@@ -127,6 +127,7 @@ INSERT INTO `scoregrade` (`GRADE`, `LOVAL`, `HIVAL`) VALUES
 --
 ALTER TABLE `advertisements`
   ADD PRIMARY KEY (`ADVID`),
+  ADD UNIQUE KEY `DESCRIP` (`DESCRIP`),
   ADD KEY `MEMBERID` (`MEMBERID`),
   ADD KEY `SCORE` (`SCORE`),
   ADD KEY `PICTURE` (`PICTURE`);
@@ -151,8 +152,8 @@ ALTER TABLE `member`
 --
 ALTER TABLE `pictures`
   ADD PRIMARY KEY (`PICID`),
-  ADD UNIQUE KEY `NAME` (`NAME`),
-  ADD KEY `MEMBERID` (`MEMBERID`);
+  ADD KEY `MEMBERID` (`MEMBERID`),
+  ADD KEY `NAME` (`NAME`);
 
 --
 -- Indizes für die Tabelle `scoregrade`
@@ -169,7 +170,7 @@ ALTER TABLE `scoregrade`
 --
 ALTER TABLE `advertisements`
   ADD CONSTRAINT `FK_ADVERTISEMENT_MEMBER` FOREIGN KEY (`MEMBERID`) REFERENCES `member` (`MEMBNO`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_ADVERTISEMENT_PICTURES` FOREIGN KEY (`PICTURE`) REFERENCES `pictures` (`PICID`);
+  ADD CONSTRAINT `FK_ADVERTISEMENT_SCORGRADE` FOREIGN KEY (`SCORE`) REFERENCES `scoregrade` (`GRADE`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
