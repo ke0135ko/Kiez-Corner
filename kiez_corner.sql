@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 23. Dez 2016 um 20:31
+-- Erstellungszeit: 04. Jan 2017 um 20:53
 -- Server-Version: 10.1.16-MariaDB
 -- PHP-Version: 7.0.9
 
@@ -38,6 +38,15 @@ CREATE TABLE `advertisements` (
   `SCORE` int(2) NOT NULL,
   `PICTURE` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+--
+-- Daten für Tabelle `advertisements`
+--
+
+INSERT INTO `advertisements` (`ADVID`, `MEMBERID`, `ADVTYPE`, `HEADLINE`, `DESCRIP`, `ZIP`, `PHONE`, `MAIL`, `SCORE`, `PICTURE`) VALUES
+(1, 11815, 'OFFER', 'Li Europan lingues es membres ', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pro', 99092, '', 'test@mail.com', 5, 1),
+(2, 11815, 'REQUEST', 'Li Europan', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot ', 99095, '0815-1234', '', 10, 2),
+(3, 11815, 'REQUEST', 'Gesuch ohne Bild', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica', 99084, '12345678', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -89,6 +98,14 @@ CREATE TABLE `pictures` (
   `TYPE` varchar(10) COLLATE latin1_general_cs NOT NULL,
   `SIZE` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+--
+-- Daten für Tabelle `pictures`
+--
+
+INSERT INTO `pictures` (`PICID`, `MEMBERID`, `NAME`, `TYPE`, `SIZE`) VALUES
+(1, 11815, '11815South Island', 'jpeg', 877912),
+(2, 11815, '11815North Island', 'jpeg', 874341);
 
 -- --------------------------------------------------------
 

@@ -26,23 +26,35 @@
 <div>
 <ul class="flex-container">
     <?php
-    
-    for ($index = 0; $index < 7; $index++) {
         include('includes/functions/dbConnect.php');
-        $query = "select * from advertisements";
-        $result = mysqli_query($conn, $query);
-        $row= mysqli_fetch_array($result);
-        echo "<li>".$row['ADVID']."<br>". 
-                   $row['MEMBERID']."<br>".
-                   $row['ADVTYPE']."<br>".
-                   $row['HEADLINE']."<br>".
-                   $row['DESCRIP']."<br>".
-                   $row['ZIP']."<br>".
-                   $row['PHONE']."<br>".
-                   $row['MAIL']."<br>".
-                   $row['SCORE']."<br>".
-                   $row['PICTURE']."</li>";
-    }
+        $queryADV = "select * from advertisements where advtype like 'REQUEST'";
+        $resultADV = mysqli_query($conn, $queryADV);        
+        $picType;
+        
+        
+        while ($rowADV= mysqli_fetch_array($resultADV)) {
+        
+            
+            $queryPIC = "select name, type from pictures where picid =".$rowADV['PICTURE'];
+            $resultPIC = mysqli_query($conn, $queryPIC);
+            $rowPIC= mysqli_fetch_array($resultPIC);
+        
+            //assign correct picture type
+            if ($rowPIC["type"]=="jpeg") {
+                $picType = "jpg";
+            } else {
+                $picType = $rowPIC["tpye"];
+            }
+        
+            echo "<li><strong>Titel</strong><br>".$rowADV['HEADLINE']."<br>"
+            . "<strong>Beschreibung</strong><br>".$rowADV['DESCRIP']."<br>"
+            . "<strong>PLZ</strong><br>".$rowADV['ZIP']."<br>"
+            . "<strong>Telefon</strong><br>".$rowADV['PHONE']."<br>"
+            . "<strong>Mail</strong><br>".$rowADV['MAIL']."<br>"
+            . "<strong>Bewertung</strong><br>".$rowADV['SCORE']."<br>"
+            . "<img src =\"uploadedImages/".$rowPIC["name"].".".$picType."\" alt = \"Foto\">"
+            . "</li>";
+        }
     include 'includes/functions/dbClose.php';
     ?>  
 </ul>

@@ -11,7 +11,7 @@ $cssPath = "";
 // Der Name der aktuellen Seite wird in der $page-Variable gespeichert, 
 // welche für die Anzeige des aktiven Navigationselementes benötigt wird.
 $page = "start";
-echo $_GET['page'];
+//echo $_GET['page'];
 if (!empty($_GET['page'])) {
   
     // Standardpfad zum Ordner der übergebenen Unterseite
@@ -47,7 +47,7 @@ if (!empty($_GET['page'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="author" content="Kevin Kosinski, Sascha Schneider">
 
-        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/erfurt_icon.png">
         <link rel="stylesheet" href="css/screen.css">
 
 <?php if ($cssPath != "") : ?>

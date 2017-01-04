@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-main, footer
+main, footer, header
 {
     background-color: #FAFAFA;
     padding: 10px;
@@ -22,13 +22,15 @@ main, footer
 /*/////////////////////////////////////////////////////////
 //HEADER-NAVIGATION
 /////////////////////////////////////////////////////////*/
-
+nav
+{
+}
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: lightcoral;
+    background-color: transparent;
 }
 
 li {
@@ -37,7 +39,7 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -81,7 +83,8 @@ li.dropdown {
     flex-flow: row wrap;
     list-style: none;
     padding: 0;
-    text-align: center;
+    text-align: left;
+    
 }
 .flex-container li
 {
@@ -95,6 +98,12 @@ li.dropdown {
     border-bottom-width: 10px;
     border-bottom-style: solid; 
     border-bottom-color: #FAFAFA;
+    display: list-item;
+}
+.flex-container img
+{
+    width: 50%;
+    max-width: 800px;
 }
 /*/////////////////////////////////////////////////////////
 //LINK AS BUTTON
@@ -105,5 +114,7 @@ a.button {
     appearance: button;
     float: right;
     text-decoration: none;
-    color: initial;
+    color: initial; 
+    position: fixed;
+    left: 87%;
 }
