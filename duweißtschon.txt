@@ -53,5 +53,11 @@ Pages:
 	-Offers
 	-Profile
 
+Quellen:
+	-Bild Dom: http://3.bp.blogspot.com/-3E-4iOVPWL0/VZBY6uz7GvI/AAAAAAAAiAg/40-EerhstXI/s1600/DW_20150614_092053_44827_HD-2.jpg
+
+Doku:
+        -session_save_path in php.ini angepasst
+
 
 

@@ -1,18 +1,37 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        
-    </head>
-    <body>
-        <h1>Test</h1>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+<div>
+    <form action="index.php?page=registrate2" name="newRegistrate1" method="POST" class="form">
+        <fieldset>
+            <legend>Personendaten</legend>
+            <div>
+                <table border="0">
+                    <tbody>
+                        <tr>
+                            <td><label for="Surname">Vorname*:</label></td>
+                            <td><input type="text" maxlength="25" name="Surname" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Lastname">Nachname*:</label></td>
+                            <td><input type="text" name="Lastname" maxlength="25" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Street">Straße*:</label></td>
+                            <td><input type="text" name="Street" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="HouseNumber">Hausnummer*:</label></td>
+                            <td><input type="text" name="HouseNumber" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="PLZ">PLZ*:</label></td>
+                            <td><input type="number" name="PLZ"  placeholder="990.." required /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
+                            <td><input type="submit" name="sent" value="Weiter"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+</div>

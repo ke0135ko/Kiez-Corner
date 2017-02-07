@@ -42,11 +42,11 @@ if (!empty($_GET['page'])) {
 <!DOCTYPE html>
 <html>
     <head> 
-        <title>Kiez Corner</title>
+        <title>Kiez Corner Erfurt</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="author" content="Kevin Kosinski, Sascha Schneider">
-
+        <meta name="author" content="Kevin Kosinski">
+        <script src="js/chkForm.js" type="text/javascript"></script>
         <link rel="icon" type="image/png" sizes="32x32" href="img/erfurt_icon.png">
         <link rel="stylesheet" href="css/screen.css">
 
@@ -61,11 +61,7 @@ if (!empty($_GET['page'])) {
 
             <main>
             <?php include ($pagePath); ?>
-            </main>
-            <!--
-            abhängig von Layout weiter Bereiche einfügen (z. B. aside)
-            -->
-            
+            </main>            
 <?php include("includes/footer.php"); ?>
         </div>
     </body>

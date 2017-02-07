@@ -1,29 +1,8 @@
-<a  id="requests" href="index.php?page=insertForm" class="button">Inserat aufgeben</a>
+<div class="div">
 
-<h3>Hier finden Sie alle Gesuche</h3>
+    <strong><a href="index.php?page=insertForm" class="button">Inserat aufgeben</a></strong>
 
-<?php
-//$ID1 = 1;
-//$memberid = '08155678901';
-//$rheadline = 'Beispielüberschrift';
-//$rdescrip = 'Anzeigentext';
-//$rzip = '99092';
-//$rphone = '0815-1234';
-//$rmail = 'testmail.com';
-//$rscore = 5;
-//include('includes/functions/dbConnect.php');
-//
-//    $sql="INSERT INTO requests
-//                 VALUES ('$ID1','$memberid', '$rheadline', '$rdescrip', '$rzip', '$rphone','$rmail', '$rscore')";
-//            if ($conn->query($sql)=== TRUE) {
-//                echo "Produkt erfolgreich eingefügt.<br>";
-//                
-//            } else 
-//            {
-//                echo "ERROR: ".$sql."<br>".$conn->error."<br>";
-//            }
-?>
-<div>
+<h3>Hier finden Sie alle Angebote</h3>
 <ul class="flex-container">
     <?php
         include('includes/functions/dbConnect.php');
@@ -33,6 +12,7 @@
         
         
         while ($rowADV= mysqli_fetch_array($resultADV)) {
+        
             
             $queryPIC = "select name, type from pictures where picid =".$rowADV['PICTURE'];
             $resultPIC = mysqli_query($conn, $queryPIC);
@@ -44,15 +24,45 @@
             } else {
                 $picType = $rowPIC["tpye"];
             }
-        
-            echo "<li><strong>Titel</strong><br>".$rowADV['HEADLINE']."<br>"
-            . "<strong>Beschreibung</strong><br>".$rowADV['DESCRIP']."<br>"
-            . "<strong>PLZ</strong><br>".$rowADV['ZIP']."<br>"
-            . "<strong>Telefon</strong><br>".$rowADV['PHONE']."<br>"
-            . "<strong>Mail</strong><br>".$rowADV['MAIL']."<br>"
-            . "<strong>Bewertung</strong><br>".$rowADV['SCORE']."<br>"
-            . "<img src =\"uploadedImages/".$rowPIC["name"].".".$picType."\" alt = \"Foto\">"
-            . "</li>";
+        ?>
+            <li>
+                <table id="tableAdvertisement">
+                    <tbody>
+                        <tr>
+                            <td>Titel</td>
+                            <td><?php echo $rowADV['HEADLINE'];?> </td>
+                        </tr>
+                        <tr>
+                            <td>Beschreibung</td>
+                            <td><p><?php echo $rowADV['DESCRIP']; ?></p></td>
+                        </tr>
+                        <tr>
+                            <td>PLZ</td>
+                            <td><?php echo $rowADV['ZIP']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Telefon</td>
+                            <td><?php echo $rowADV['PHONE']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Mail</td>
+                            <td><?php echo $rowADV['MAIL']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Bewertung</td>
+                            <td><?php echo $rowADV['SCORE']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Bild</td>
+                            <td>
+                                <span><img id="picture" src ="uploadedImages/<?php echo $rowPIC["name"].".".$picType;?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+        <?php
+    
         }
     include 'includes/functions/dbClose.php';
     ?>  
