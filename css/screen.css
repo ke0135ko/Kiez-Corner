@@ -9,8 +9,6 @@
 body,html
 {
     color: rgb(38,33,33);
-    background: linear-gradient(to bottom, white, lightgreen);
-    background-attachment: fixed;
     font-family: 'Damion';
     font-size: 1.1em;
     line-height: 1.3;
@@ -141,9 +139,11 @@ li.dropdown
 .flex-container li
 {
     height: 100%;
-    margin: 5px;
+    width: 400px;
+    margin: 30px;
     display: flex;
     box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+    background-color: whitesmoke;
 }
 
 .flex-container li:hover
@@ -176,16 +176,16 @@ a.button
 /////////////////////////////////////////////////////////*/
 .form
 {
-  width: 80%;
+  width: 50%;
   position: relative;
   margin: auto;
   color: black;
-  font-size: 1.1em;
+  font-size: 1em;
   
 }
 .form fieldset
 {
-    background-color: rgba(128,128,128,0.1);
+    background-color: whitesmoke;
 }
 .form table
 {
@@ -196,7 +196,7 @@ a.button
 .form input[type=text], .form input[type=password], .form input[type=number],
 .form select, .form input[type=email] {
     width: 70%;
-    padding: 12px 20px;
+    padding: 10px 30px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -222,6 +222,6 @@ a.button
 }
 #tableAdvertisement tr:nth-child(even)
 {
-    background-color:  rgba(136, 202, 136, 1);  
+    background-color:  rgba(29, 197, 47, 0.24);  
 }
 

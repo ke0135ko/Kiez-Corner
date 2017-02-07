@@ -51,7 +51,6 @@
                         </tr>
                     </tbody>
                 </table>
-<!--                <a href="../../functions/execLogout.php"></a>-->
             </div>
         </form>
 </div>
