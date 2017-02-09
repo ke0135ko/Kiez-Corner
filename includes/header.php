@@ -25,7 +25,7 @@
 
     <nav>
         <ul>
-            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php" style="color: rgba(136, 202, 136, 1)"><em>KiezCorner</em></a></li>
             <li class="dropdown">
                 <a class="dropbtn">Inserate</a>
                 <div class="dropdown-content">
@@ -34,7 +34,6 @@
                 </div>
             </li>
             <li><a href="index.php?page=search_form">Suche</a></li>
-
             <li><a href="index.php?page=registrate">Registrieren</a></li>
             <li><a href="index.php?page=impressum">Impressum</a></li>
             <?php

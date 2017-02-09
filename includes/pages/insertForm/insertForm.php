@@ -15,11 +15,12 @@
     if (!isset($_SESSION["USERNAME"])) {
         ?>
         <div class="div">
-            <strong style="margin: 50%">Bitte melden Sie sich an</strong>
+
+            <h3>Bitte melden Sie sich an</h3>
 
         <?php } else { ?>
 
-            <b><p>Bitte geben Sie folgende Daten ein:</p></b>
+            <h3>Bitte geben Sie folgende Daten ein:</h3>
             <form action="includes/functions/insert_advertisement.php" name="NewAdvertisement" method="POST" enctype="multipart/form-data" class="form">
                 <fieldset>
                     <legend>Beschreibung Inserat</legend>
@@ -43,9 +44,9 @@
                                               placeholder="Bitte geben Sie eine Beschreibung  mit max. 200 Zeichen ein..."></textarea></td>
                             </tr>
                             <tr>
-                                <td><label for="Score">Wert*:</label></td>
+                                <td><label for="Score">Kiez Punkte*:</label></td>
                                 <td><input type="range" name="Score" max="10" min="0" onchange="updateScoreInput(this.value);"required/>
-                                    <input type="text" placeholder="5" style="width: 10px" id="scoreInput"/>
+                                    <input type="text" placeholder="5" style="width: 70px" id="scoreInput"/>
                                 </td>
                             </tr>
                             <tr>
@@ -54,6 +55,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <small>*Pflichtangaben</small>
                 </fieldset><br>
                 <fieldset>
                     <legend>Kontaktinformationen</legend>
@@ -77,6 +79,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <small>*Pflichtangaben</small>
                 </fieldset>
             </form>
         </div>

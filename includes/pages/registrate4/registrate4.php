@@ -11,7 +11,7 @@
         
         <form action="includes/functions/insert_newUser.php" name="newRegistrate4" method="POST" class="form">
             <div>
-                <table border="0">
+                <table style="border: solid 1px" class="tableAdvertisement">
                     <tbody>
                         <tr>
                             <td><label for="Surname">Vorname:</label></td>

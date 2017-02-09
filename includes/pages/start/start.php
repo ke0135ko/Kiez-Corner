@@ -1,5 +1,5 @@
 <div id="welcome_message">
-    <h1>Kiez Corner ERFURT</h1>
+    <h1>KiezCorner <em>Erfurt</em></h1>
 </div>
 <div>
 <article id="article">  

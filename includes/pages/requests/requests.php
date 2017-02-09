@@ -6,9 +6,10 @@
 
 <strong><a href="index.php?page=insertForm" class="button">Inserat aufgeben</a></strong>
 
-<h3>Hier finden Sie alle Gesuche</h3>
-
 <ul class="flex-container">
+    
+    <h3>Hier finden Sie alle Gesuche</h3>
+    
     <?php
         include('includes/functions/dbConnect.php');
         $queryADV = "select * from advertisements where advtype like 'REQUEST'";
@@ -31,8 +32,14 @@
             }
         ?>
             <li>
-                <table id="tableAdvertisement">
+                <table class="tableAdvertisement">
                     <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span><img id="picture" src ="uploadedImages/<?php echo $rowPIC["name"].".".$picType;?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
+                            </td>
+                        </tr>
                         <tr>
                             <td>Titel</td>
                             <td><?php echo $rowADV['HEADLINE'];?> </td>
@@ -54,14 +61,8 @@
                             <td><?php echo $rowADV['MAIL']; ?></td>
                         </tr>
                         <tr>
-                            <td>Bewertung</td>
+                            <td>Kiez Punkte</td>
                             <td><?php echo $rowADV['SCORE']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Bild</td>
-                            <td>
-                                <span><img id="picture" src ="uploadedImages/<?php echo $rowPIC["name"].".".$picType;?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
-                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -47,7 +47,7 @@ if (!empty($_GET['page'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="author" content="Kevin Kosinski">
         <script src="js/chkForm.js" type="text/javascript"></script>
-        <link rel="icon" type="image/png" sizes="32x32" href="img/erfurt_icon.png">
+        <script src="https://use.fontawesome.com/4ce204c4a3.js"></script>
         <link rel="stylesheet" href="css/screen.css">
 
 <?php if ($cssPath != "") : ?>

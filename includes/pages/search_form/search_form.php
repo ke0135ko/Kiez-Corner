@@ -21,21 +21,11 @@ $findScore= mysqli_query($conn, $selectScore);
                                 <option value="REQUEST">Gesuch</option>
                             </select>
                         </td>
-<!--                    <tr>
-                        <td></td>
-                        <td><input type="radio" name="Operator1" value="AND">UND<br>
-                            <input type="radio" name="Operator1" value="OR" checked="checked">ODER</td>
-                    </tr>-->
                     </tr>
                     <tr>
                         <td><label for="Headline">Stichwort in Titel:</label></td>
                         <td><input type="text" name="Headline" maxlength="25"/></td>
                     </tr>
-<!--                    <tr>
-                        <td></td>
-                        <td><input type="radio" name="Operator2" value="AND">UND<br>
-                            <input type="radio" name="Operator2" value="OR" checked="checked">ODER</td>
-                    </tr>-->
                     <tr>
                         <td><label for="Descrip">Stichwort in Beschreibung:</label></td>
                         <td><input type="text" name="Descrip" maxlength="25" ></td>
@@ -65,31 +55,6 @@ $findScore= mysqli_query($conn, $selectScore);
                     </tr>
                 </tbody>
             </table>
-<!--        </fieldset><br>
-        <fieldset>
-            <legend>Suchinformationen Autor</legend>
-            <table border="0">
-                <tbody>
-                    <tr>
-                        <td><label for="Name">Name:</label></td>
-                        <td><input type="text" name="Name" maxlength="50"/></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="radio" name="Operator5" value="AND">UND<br>
-                            <input type="radio" name="Operator5" value="OR" checked="checked">ODER</td>
-                    </tr>
-                    <tr>
-                        <td><label for="Zip">PLZ:</label></td>
-                        <td><input type="number" name="Zip" /></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" name="search" value="Suchen"/></td>
-                        <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
-                    </tr>
-                </tbody>
-            </table>
-        </fieldset>-->
     </form> 
 <?php
 include "includes/functions/dbClose.php";

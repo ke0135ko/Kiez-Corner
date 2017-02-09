@@ -6,6 +6,7 @@ if(!isset($_SESSION)) {
     }
 include "dbConnect.php";
 
+//transmitted datas
 $membno = date("dmis");
 $name = $_SESSION["SURNAME"] . " " . $_SESSION["LASTNAME"];
 $address = $_SESSION["STREET"] . " " . $_SESSION["HOUSENUMBER"];
@@ -27,13 +28,15 @@ if ($row["max(LOGID)"] == NULL) {
     $newLogID = $row["max(LOGID)"] + 1;
 }
 
-//Insert User information into member AND Login information into login
+//Insert User information into member table AND Login information into login table
 $userInformation = "INSERT INTO member
                   VALUES ('$membno', '$name', '$address', '$plz', 'ERFURT', '$mail', '$phone', '5')";
 
 $loginInformation = "INSERT INTO login
                   VALUES ('$newLogID', '$membno', '$username', '$password')";
 
+//if insert was successful redirect to start page
+//otherwise print error information
 if ($conn->query($userInformation) === TRUE && $conn->query($loginInformation) === TRUE) {
     header('location: \Kiez-Corner\index.php?page=start');
 } else {

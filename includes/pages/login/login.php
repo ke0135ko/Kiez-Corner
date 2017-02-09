@@ -23,6 +23,7 @@
                     </tr>
                 </tbody>
             </table>
+            <small>*Pflichtangaben</small>
         </fieldset>
     </form>
 </div>

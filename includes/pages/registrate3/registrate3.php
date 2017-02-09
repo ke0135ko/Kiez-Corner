@@ -34,6 +34,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <small>*Pflichtangaben</small>
             </div>
         </fieldset>
     </form>

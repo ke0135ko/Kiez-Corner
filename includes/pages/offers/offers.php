@@ -2,35 +2,44 @@
 
     <strong><a href="index.php?page=insertForm" class="button">Inserat aufgeben</a></strong>
 
-<h3>Hier finden Sie alle Angebote</h3>
-<ul class="flex-container">
-    <?php
+    <ul class="flex-container">
+
+        <h3>Hier finden Sie alle Angebote</h3>
+
+        <?php
         include('includes/functions/dbConnect.php');
         $queryADV = "select * from advertisements where advtype like 'OFFER'";
-        $resultADV = mysqli_query($conn, $queryADV);        
+        $resultADV = mysqli_query($conn, $queryADV);
         $picType;
-        
-        
-        while ($rowADV= mysqli_fetch_array($resultADV)) {
-        
-            
-            $queryPIC = "select name, type from pictures where picid =".$rowADV['PICTURE'];
+
+        //display all results
+        while ($rowADV = mysqli_fetch_array($resultADV)) {
+
+            //find picture
+            $queryPIC = "select name, type from pictures where picid =" . $rowADV['PICTURE'];
             $resultPIC = mysqli_query($conn, $queryPIC);
-            $rowPIC= mysqli_fetch_array($resultPIC);
-        
+            $rowPIC = mysqli_fetch_array($resultPIC);
+
             //assign correct picture type
-            if ($rowPIC["type"]=="jpeg") {
+            if ($rowPIC["type"] == "jpeg") {
                 $picType = "jpg";
             } else {
                 $picType = $rowPIC["tpye"];
             }
-        ?>
+            ?>
+            <!--each result is one list-item in the flex container-->
             <li>
-                <table id="tableAdvertisement">
+                <table class="tableAdvertisement">
                     <tbody>
                         <tr>
+                            <td></td>
+                            <td>
+                                <span><img id="picture" src ="uploadedImages/<?php echo $rowPIC["name"] . "." . $picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Titel</td>
-                            <td><?php echo $rowADV['HEADLINE'];?> </td>
+                            <td><?php echo $rowADV['HEADLINE']; ?> </td>
                         </tr>
                         <tr>
                             <td>Beschreibung</td>
@@ -49,22 +58,15 @@
                             <td><?php echo $rowADV['MAIL']; ?></td>
                         </tr>
                         <tr>
-                            <td>Bewertung</td>
+                            <td>Kiez Punkte</td>
                             <td><?php echo $rowADV['SCORE']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Bild</td>
-                            <td>
-                                <span><img id="picture" src ="uploadedImages/<?php echo $rowPIC["name"].".".$picType;?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
             </li>
-        <?php
-    
+            <?php
         }
-    include 'includes/functions/dbClose.php';
-    ?>  
-</ul>
+        include 'includes/functions/dbClose.php';
+        ?>  
+    </ul>
 </div>

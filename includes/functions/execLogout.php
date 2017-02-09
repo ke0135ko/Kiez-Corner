@@ -1,4 +1,5 @@
 <?php
+
 if(!isset($_SESSION)) {
         session_start();
         session_cache_limiter(20);
