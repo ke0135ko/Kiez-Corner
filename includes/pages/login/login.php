@@ -18,8 +18,8 @@
                         <td><input type="password" name="Password" maxlength="80" id="Password" required /></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" name="sent" value="Anmelden"/></td>
                         <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
+                        <td><input type="submit" name="sent" value="Anmelden"/></td>
                     </tr>
                 </tbody>
             </table>

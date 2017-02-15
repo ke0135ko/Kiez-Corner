@@ -50,8 +50,8 @@ $findScore= mysqli_query($conn, $selectScore);
                             </select>                            
                     </tr>
                     <tr>
-                        <td><input type="submit" name="search" value="Suchen"/></td>
                         <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
+                        <td><input type="submit" name="search" value="Suchen"/></td>
                     </tr>
                 </tbody>
             </table>
