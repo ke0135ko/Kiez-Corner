@@ -1,6 +1,8 @@
 <div class="div">
 
-<strong><a href="index.php?page=insertForm" class="button">Inserat aufgeben</a></strong>
+    <a href="index.php?page=insertForm" class="KiezButton_newAdv">
+       <i class="fa fa-plus"> Neues Inserat</i>
+    </a>
 
 <ul class="flex-container">
     

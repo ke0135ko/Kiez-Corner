@@ -3,7 +3,7 @@
     <article style="text-align: center">
         <p>Zur Umsetzung und Fertigstellung weiterer Funktionalitäten suchen wir DICH als Unterstützung.
            Du bist motiviert, an neuen Webtechnologien interesssiert und sprühst vor kreativen Ideen? Dann bist du bei 
-           <em style="color: rgba(136, 202, 136, 1)">KiezCorner</em> genau richtig.<br>
+           <em style="color: rgba(136, 202, 136, 0.8)">KiezCorner</em> genau richtig.<br>
            Bewirb dich gleich jetzt!
         </p>
         <section>
@@ -11,7 +11,7 @@
                 <fieldset>
                     <legend>Bewerbung</legend>
                     <div>
-                        <small>Bitte alle Felder ausfüllen.</small>
+                        <small>Bitte alle Felder ausfüllen</small>
                         <table border="0">
                             <tbody>
                                 <tr>
@@ -35,8 +35,13 @@
                                     <td><input type="email" name="Mail" required /></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
-                                    <td><input type="submit" name="sent" value="Bewerbung absenden"/></td>
+                                    <td><button type="reset" name="reset" class="KiezButton">
+                                            <i class="fa fa-undo"></i>
+                                        </button></td>
+                                        <td><button type="submit" name="sent" class="KiezButton">
+                                            <i class="fa fa-paper-plane"></i>
+                                        </button>
+                                    </td>    
                                 </tr>
                             </tbody>
                         </table>
