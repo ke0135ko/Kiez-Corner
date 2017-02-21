@@ -54,7 +54,7 @@
     <table border="0" style="width: 100% ">
             <thead>
                 <tr>
-                    <th align="left">Verknüpfungen</th>
+                    <th align="left"><em>Verknüpfungen</em></th>
                 </tr>
             </thead>
             <tbody>
@@ -106,5 +106,15 @@
        Zur Abgrenzung des Navigationsbereiches kommt die modern wirkende Schriftart "Damion" zum Einsatz, welche erst bei
        Überfahren mit der Maus in die Hauptschriftfarbe schwarz wechselt, um nicht aufdringlich in den Vordergrund zu geraten.
        Um für eine gute Lesbarkeit des Hauptbereiches zu sorgen, wird die serifenlose Schrift "Sans-Serif" eingesetzt.</p>
+    
+     <h4>Datenbank</h4>
+     <ul>
+         <li><a href="includes/pages/documentation/KiezCorner-ER.png">ER-Modell</a></li>
+         <li><a href="includes/pages/documentation/KiezCorner-relationales_Modell.xlsx">relationales Modell</a></li>
+     </ul>
+     
+     <h4>mehrseitiges Formular</h4>
+     <p>Der folgende <a href="includes/pages/documentation/KiezCorner-Datenfluss.png">Link</a> enthält das
+        Datenflussdiagramm zum Registrierungsformular.</p>
 </article>
 <H4></H4>

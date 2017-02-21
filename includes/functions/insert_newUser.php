@@ -7,7 +7,6 @@ if(!isset($_SESSION)) {
 include "dbConnect.php";
 
 //transmitted datas
-$membno = date("dmis");
 $name = $_SESSION["SURNAME"] . " " . $_SESSION["LASTNAME"];
 $address = $_SESSION["STREET"] . " " . $_SESSION["HOUSENUMBER"];
 $plz = $_SESSION["PLZ"];
@@ -15,6 +14,9 @@ $mail = $_SESSION["MAIL"];
 $phone = $_SESSION["PHONE"];
 $username = $_SESSION["USERNAME"];
 $password = $_SESSION["PASSWORD"];
+
+//create new member number with function date
+$membno = date("dmis");
 
 //calculate new LogID
 $newLogID;
@@ -28,7 +30,7 @@ if ($row["max(LOGID)"] == NULL) {
     $newLogID = $row["max(LOGID)"] + 1;
 }
 
-//Insert User information into member table AND Login information into login table
+//Insert user information into member table AND Login information into login table
 $userInformation = "INSERT INTO member
                   VALUES ('$membno', '$name', '$address', '$plz', 'ERFURT', '$mail', '$phone', '5')";
 

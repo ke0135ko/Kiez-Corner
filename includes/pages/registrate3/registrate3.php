@@ -1,3 +1,5 @@
+<noscript>Diese Seite wird nur bei aktiviertem Javascript richtig ausgeführt</noscript>
+
 <div class="div">
     
     <?php
@@ -7,7 +9,6 @@
     }
     $_SESSION["MAIL"] = $_REQUEST["Mail"];
     $_SESSION["PHONE"] = $_REQUEST["Phone"];
-
     ?>
     
      <form action="index.php?page=registrate4" name="newRegistrate3" method="POST" class="form">
@@ -29,8 +30,14 @@
                             <td><input type="password" name="Password2" id="Password2" required /></td>
                         </tr>
                         <tr>
-                            <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
-                            <td><input type="submit" name="sent" onclick="return (comparePwds() && validatePwd() && validateUsername());" value="zur Übersicht"/></td>
+                            <td><button type="reset" name="reset" class="KiezButton">
+                                    <i class="fa fa-undo"></i> 
+                                </button>
+                            </td>
+                            <td><button class="KiezButton" type="submit" name="sent" onclick="return (comparePwds() && validatePwd() && validateUsername());">
+                                    Übersicht <i class="fa fa-angle-double-right"></i>
+                                </button>    
+                            </td>
                         </tr>
                     </tbody>
                 </table>

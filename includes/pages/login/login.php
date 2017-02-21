@@ -1,9 +1,4 @@
-<div class="div">
-    
-<?php
-    
-?>
-    
+<div class="div">    
     <form action="includes/functions/chkLogin.php" name="validateLogin" method="POST" enctype="multipart/form-data" class="form">
         <fieldset>
             <legend>Anmeldung</legend>
@@ -18,8 +13,14 @@
                         <td><input type="password" name="Password" maxlength="80" id="Password" required /></td>
                     </tr>
                     <tr>
-                        <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
-                        <td><input type="submit" name="sent" value="Anmelden"/></td>
+                        <td><button type="reset" name="reset" class="KiezButton">
+                                <i class="fa fa-undo"></i>
+                            </button>
+                        </td>
+                        <td><button type="submit" name="sent" class="KiezButton">
+                                <i class="fa fa-sign-in"></i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

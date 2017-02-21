@@ -7,11 +7,8 @@
 
 <noscript>Diese Seite wird nur bei aktiviertem Javascript richtig angezeigt</noscript>
 
-<div class="div">
-
     <?php
-//check for valid Session
-
+    //check for valid Session
     if (!isset($_SESSION["USERNAME"])) {
         ?>
         <div class="div">
@@ -20,7 +17,7 @@
 
         <?php } else { ?>
 
-            <h3>Bitte geben Sie folgende Daten ein:</h3>
+            <h3>Bitte gib folgende Daten ein:</h3>
             <form action="includes/functions/insert_advertisement.php" name="NewAdvertisement" method="POST" enctype="multipart/form-data" class="form">
                 <fieldset>
                     <legend>Beschreibung Inserat</legend>
@@ -74,8 +71,15 @@
                                 <td><input type="email" name="Mail" id="Mail" maxlength="80"/></td>
                             </tr>
                             <tr>
-                                <td><input type="submit" name="sent" value="Senden" onclick=" return (validateZip() && validatePhoneOrMail());"/></td>
-                                <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
+                                <td>
+                                    <button type="reset" name="reset" class="KiezButton">
+                                        <i class="fa fa-undo"></i>
+                                    </button>
+                                </td>
+                                 <td>
+                                     <button type="submit" name="sent" onclick=" return (validateZip() && validatePhoneOrMail());" class="KiezButton">
+                                         Senden</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

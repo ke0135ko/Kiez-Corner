@@ -4,7 +4,7 @@
         session_start();
         session_cache_limiter(20);
     }
-
+    //if user is logged in, display users firstname
     if (isset($_SESSION["USERNAME"])) {
         include "includes/functions/dbConnect.php";
 
@@ -22,10 +22,9 @@
         include "includes/functions/dbClose.php";
     }
     ?>  
-
     <nav>
         <ul>
-            <li><a href="index.php" style="color: rgba(136, 202, 136, 1)"><em>KiezCorner</em></a></li>
+            <li style="margin-bottom: -8px"><a href="index.php" style="padding-top: 6px"><img src="img/logo.jpg" alt="KiezCorner" height="35"/></a></li> 
             <li class="dropdown">
                 <a class="dropbtn">Inserate</a>
                 <div class="dropdown-content">
@@ -37,18 +36,16 @@
             <li><a href="index.php?page=registrate">Registrieren</a></li>
             <li><a href="index.php?page=impressum">Impressum</a></li>
             <?php
+            //display login or logout
             if (!isset($_SESSION["USERNAME"])) {
 
                 echo "<li style =\"float: right !important\"><a href=\"index.php?page=login\">Anmelden</a></li>";
             } else {
 
-                echo "<li style =\"float: right !important\"><a href=\"\\Kiez-Corner\\includes\\functions\\execLogout.php\">Abmelden</a></li>";
+                echo "<li style =\"float: right !important\"><a href=\"includes\\functions\\execLogout.php\">Abmelden</a></li>";
             }
             ?>
         </ul>
     </nav> 
-    <div>
-
-    </div>
 </header>
 

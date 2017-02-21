@@ -28,8 +28,41 @@ $membno = $UserID["USERID"];
 //INSERT ADVERTISEMENT/PICTURE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FIRST: INSERT ADVERTISEMENT IN DB
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//calculate new AdvID
+$newAdvid;
+$selectCurrentAdvid = 'select max(ADVID) from advertisements';
+$queryAdvid = mysqli_query($conn, $selectCurrentAdvid) or die("Abfrage AdvID fehlgeschlagen");
+$row2 = mysqli_fetch_array($queryAdvid);
+
+if ($row2['max(ADVID)'] == NULL) {
+    $newAdvid = 1;
+} else {
+    $newAdvid = $row2['max(ADVID)'] + 1;
+}
+
+//ADVTYPE Request or Offer
+$AdvType;
+if ($TypeAdvertisement == 'ANGEBOT') {
+    $AdvType = 'OFFER';
+} else {
+    $AdvType = 'REQUEST';
+}
+
+//Insert into DB
+$sql2 = "INSERT INTO advertisements
+                  VALUES ('$newAdvid', '$membno', '$AdvType', '$Headline', '$Descrip', '$Zip', '$phone', '$mail', '$Score')";
+if ($conn->query($sql2) === TRUE) {
+    echo "Inserat erfolgreich eingefügt.<br>";
+} else {
+    echo "ERROR: " . $sql2 . "<br>" . $conn->error . "<br>";
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//FIRST: FILE UPLOAD
+//SECOND: FILE UPLOAD
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //check if picture is available
@@ -71,7 +104,7 @@ if ($_FILES['Picture']['size'] > 0) {
                     
                     //Insert into DB
                     $sql1 = "INSERT INTO pictures
-                                VALUES ('$newPicid', '$membno', '$membno$fileName[0]', '$fileType[1]', '$fileSize')";
+                                VALUES ('$newPicid', '$membno', '$membno$fileName[0]', '$fileType[1]', '$fileSize', '$newAdvid')";
                     if ($conn->query($sql1) === FALSE) {
 
                         echo "ERROR: " . $sql1 . "<br>" . $conn->error . "<br>";
@@ -88,47 +121,6 @@ if ($_FILES['Picture']['size'] > 0) {
         echo "Fehler bei der Übertragung!<br>"
         . "Das Bild wurde nicht gespeichert.";
     }
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//SECOND: INSERT ADVERTISEMENT IN DB
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//calculate new AdvID
-$newAdvid;
-$Picid;
-$selectCurrentAdvid = 'select max(ADVID) from advertisements';
-$queryAdvid = mysqli_query($conn, $selectCurrentAdvid) or die("Abfrage AdvID fehlgeschlagen");
-$row2 = mysqli_fetch_array($queryAdvid);
-
-if ($row2['max(ADVID)'] == NULL) {
-    $newAdvid = 1;
-} else {
-    $newAdvid = $row2['max(ADVID)'] + 1;
-}
-
-//ADVTYPE Request or Offer
-$AdvType;
-if ($TypeAdvertisement == 'ANGEBOT') {
-    $AdvType = 'OFFER';
-} else {
-    $AdvType = 'REQUEST';
-}
-
-//check if Picture was uploaded and create $Picid
-if (isset($newPicid)) {
-    $Picid = $newPicid;
-} else {
-    $Picid = 0;
-}
-
-//Insert into DB
-$sql2 = "INSERT INTO advertisements
-                  VALUES ('$newAdvid', '$membno', '$AdvType', '$Headline', '$Descrip', '$Zip', '$phone', '$mail', '$Score', '$Picid')";
-if ($conn->query($sql2) === TRUE) {
-    echo "Inserat erfolgreich eingefügt.<br>";
-} else {
-    echo "ERROR: " . $sql2 . "<br>" . $conn->error . "<br>";
 }
 
 include 'dbClose.php';

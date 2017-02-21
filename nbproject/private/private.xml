@@ -3,26 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/header.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/offers/offers.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/execLogout.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/insert_newUser.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/dbConnect.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/dbClose.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/js/chkForm.js</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/start/start.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/registrate2/registrate2.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/logout/logout.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/destroySession.php</file>
-            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/header.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/login/login.php</file>
-            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/offers/offers.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/search_result/search_result.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/css/screen.css</file>
-            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/execLogout.php</file>
-            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/insert_newUser.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/index.php</file>
-            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/dbConnect.php</file>
-            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/dbClose.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/registrate3/registrate3.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/chkLogin.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/registrate4/registrate4.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/search_form/search_form.php</file>
-            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/start/start.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/requests/requests.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/insertForm/insertForm.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/documentation/documentation.php</file>
+            <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/impressum/impressum.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/pages/registrate/registrate.php</file>
             <file>file:/C:/xampp/htdocs/Kiez-Corner/includes/functions/insert_advertisement.php</file>
         </group>

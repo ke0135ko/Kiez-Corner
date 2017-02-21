@@ -1,4 +1,5 @@
-<div>
+<div class="div">
+    <h3>Jetzt registrieren und 5 Kiez Punkte erhalten!</h3>
     <form action="index.php?page=registrate2" name="newRegistrate1" method="POST" class="form">
         <fieldset>
             <legend>Personendaten</legend>
@@ -26,8 +27,14 @@
                             <td><input type="number" name="PLZ"  placeholder="990.." required /></td>
                         </tr>
                         <tr>
-                            <td><input type="reset" name="reset" value="Zurücksetzen"/></td>
-                            <td><input type="submit" name="sent" value="Weiter"/></td>
+                            <td><button type="reset" name="reset" class="KiezButton">
+                                    <i class="fa fa-undo"></i>
+                                </button>
+                            </td>
+                            <td><button type="submit" name="sent" class="KiezButton">Weiter
+                                    <i class="fa fa-angle-double-right"></i>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

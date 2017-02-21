@@ -16,7 +16,7 @@
         while ($rowADV = mysqli_fetch_array($resultADV)) {
 
             //find picture
-            $queryPIC = "select name, type from pictures where picid =" . $rowADV['PICTURE'];
+            $queryPIC = "select name, type from pictures where assigned_adv = " . $rowADV['ADVID'];
             $resultPIC = mysqli_query($conn, $queryPIC);
             $rowPIC = mysqli_fetch_array($resultPIC);
 

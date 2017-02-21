@@ -5,9 +5,9 @@
         session_cache_limiter(20);
     }
     $_SESSION["USERNAME"] = $_REQUEST["Username"];
-    $_SESSION["PASSWORD"] = $_REQUEST["Password2"];
+    $_SESSION["PASSWORD"] = $_REQUEST["Password2"];    
     ?>
-        <h3>Bitte überprüfen Sie die Daten und klicken zum Abschluss des Vorgangs auf "Abschicken"</h3>
+        <h3>Bitte überprüfe deine Daten und schließe den Vorgang durch einen Klick auf "Abschicken" ab.</h3>
         
         <form action="includes/functions/insert_newUser.php" name="newRegistrate4" method="POST" class="form">
             <div>
@@ -46,8 +46,11 @@
                             <td name="Username"><?php echo $_SESSION["USERNAME"] ?></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" name="submit" value="Abschicken"/></td>
-                            <td><a href ="/Kiez-Corner/includes/functions/destroySession.php" name="home" value="Startseite">zurück zur Startseite</a></td>
+                            <td><a class="KiezButton" href ="includes/functions/destroySession.php" name="home">Startseite</a></td>
+                            <td><button class="KiezButton" type="submit" name="submit">
+                                    Abschicken
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

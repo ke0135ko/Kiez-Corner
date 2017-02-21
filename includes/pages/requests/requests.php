@@ -1,8 +1,4 @@
 <div class="div">
-   
-<head>
-    <script src="../../../js/expandPicture.js" type="text/javascript"></script>
-</head>
 
 <strong><a href="index.php?page=insertForm" class="button">Inserat aufgeben</a></strong>
 
@@ -16,11 +12,11 @@
         $resultADV = mysqli_query($conn, $queryADV);        
         $picType;
         
-        
+        //display all results
         while ($rowADV= mysqli_fetch_array($resultADV)) {
         
-            
-            $queryPIC = "select name, type from pictures where picid =".$rowADV['PICTURE'];
+            //find picture
+            $queryPIC = "select name, type from pictures where assigned_adv = " . $rowADV['ADVID'];
             $resultPIC = mysqli_query($conn, $queryPIC);
             $rowPIC= mysqli_fetch_array($resultPIC);
         
@@ -31,6 +27,7 @@
                 $picType = $rowPIC["tpye"];
             }
         ?>
+            <!--each result is one list-item in the flex container-->
             <li>
                 <table class="tableAdvertisement">
                     <tbody>

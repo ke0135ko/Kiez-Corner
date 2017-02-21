@@ -45,8 +45,8 @@ main, footer, header
 #welcome_message h1
 {
     color: rgba(136, 202, 136, 1);
-    text-align: center;
-    padding-left: 10%;
+    text-align: left;
+    margin-left: 42%;
     font-size: 3em;
 }
 
@@ -57,7 +57,7 @@ nav
 {
     font-family: 'Damion';
 }
-ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -66,7 +66,7 @@ ul {
     color: black;
 }
 
-li {
+nav ul li {
     float: left;
     color: black;
 }
@@ -121,16 +121,8 @@ li.dropdown
     z-index: 1;
 }
 
-#registrate
-{
-    float: right !important;
-}
-#login
-{
-    appearance: inherit;
-}
 /*/////////////////////////////////////////////////////////
-//Flexbox
+//FLEXBOX
 /////////////////////////////////////////////////////////*/
 .flex-container 
 {
@@ -160,6 +152,7 @@ li.dropdown
 .flex-container img
 {
     max-width: 100px;
+    max-height: 100px;
 }
 .flex-container img:hover
 {
@@ -198,8 +191,7 @@ a.button
 .form table
 {
     width: 80%;
-    margin: auto;
-    text-align: left;
+    margin-left: 17%;
 }
 
 .form input[type=text], .form input[type=password], .form input[type=number],
@@ -214,7 +206,7 @@ a.button
 }
 
 /*/////////////////////////////////////////////////////////
-//Advertisement Table
+//ADVERTISEMENT TABLE
 /////////////////////////////////////////////////////////*/
 
 .tableAdvertisement
@@ -234,3 +226,26 @@ a.button
     background-color:  rgba(29, 197, 47, 0.24);  
 }
 
+/*/////////////////////////////////////////////////////////
+//BUTTON
+/////////////////////////////////////////////////////////*/
+
+.KiezButton 
+{
+    background-color: rgba(136, 202, 136, 0.8);
+    color: white;
+    font-family: sans-serif;
+    line-height: 1.3;
+    width: 150px;
+    padding: 10px 30px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+.KiezButton:hover
+{
+    color:  black;
+    background-color: whitesmoke;
+}
