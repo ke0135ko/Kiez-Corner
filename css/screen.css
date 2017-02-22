@@ -262,14 +262,12 @@ a.button
     font-family: sans-serif;
     line-height: 1.3;
     width: 150px;
-    margin: 8px 0;
     border: 0;
     font-size: 1em;
     text-decoration: none;
     position: fixed;
     right: 15%;
-    padding-top: 15%;
-    
+    margin-top: 15%;  
 }
 
 .KiezButton_newAdv:hover
