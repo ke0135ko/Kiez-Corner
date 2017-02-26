@@ -13,7 +13,7 @@
         ?>
         <div class="div">
 
-            <h3>Bitte melden Sie sich an</h3>
+            <h3>Bitte melde dich erst an</h3>
 
         <?php } else { ?>
 

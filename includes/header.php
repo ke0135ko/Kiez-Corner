@@ -1,14 +1,12 @@
 <header>
     <?php
-    if (!isset($_SESSION)) {
-        session_start();
-        session_cache_limiter(20);
-    }
     //if user is logged in, display users firstname
+    session_start();
+    
     if (isset($_SESSION["USERNAME"])) {
         include "includes/functions/dbConnect.php";
 
-        //find name according username
+        //find name according username;
         $userName = $_SESSION["USERNAME"];
         $selectName = "select name from member m join login l on m.membno=l.userid where username = '$userName'";
         $queryName = mysqli_query($conn, $selectName);

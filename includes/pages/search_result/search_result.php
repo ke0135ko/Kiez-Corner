@@ -82,6 +82,23 @@
                             <td>Kiez Punkte</td>
                             <td><?php echo $rowAdvertisement['SCORE']; ?></td>
                         </tr>
+                        <?php
+                    if ((isset($_SESSION["USERID"])) && ($_SESSION["USERID"] == $rowAdvertisement['MEMBERID'])) {
+                    ?>
+                    <tr>
+                        <td>
+                            <a href="index.php?page=insertForm" class="KiezButton_Adv">
+                                <i class="fa fa-pencil-square-o"></i> Ändern
+                            </a>
+                        </td>
+                        <td>
+                            <a href="index.php?page=insertForm" class="KiezButton_Adv">
+                                <i class="fa fa-times"></i> Löschen
+                            </a>
+                        </td>
+                    </tr>
+                    <?php
+                    } ?>
                     </tbody>
                 </table>
             </li>

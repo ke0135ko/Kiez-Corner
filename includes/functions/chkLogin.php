@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 //transmitted datas
 $username = $_REQUEST["Username"];
@@ -15,9 +15,10 @@ $row = mysqli_fetch_array($queryUser);
 if (($row["USERNAME"] == $username) && $row["PASSWORD"] == $password) {
 
     session_start();
-    session_cache_limiter(20);
+    session_name ('LOGGEDIN');
     $_SESSION["USERNAME"] = $username;
-    $_SESSION["USERID"] = row["USERID"];
+    $_SESSION["USERID"] = $row["USERID"];
+    $session = session_id();
     include "dbClose.php";
     header('location: \Kiez-Corner\index.php?page=start');
 } else {

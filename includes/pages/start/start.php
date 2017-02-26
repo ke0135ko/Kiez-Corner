@@ -1,5 +1,5 @@
 <div id="welcome_message">
-    <h1><em>E r f u r t</em></h1>
+    <h1>E r f u r t</h1>
     
 </div>
 <div>
