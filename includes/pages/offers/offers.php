@@ -6,7 +6,7 @@
 
     <ul class="flex-container">
 
-        <h3>Hier finden Sie alle Angebote</h3>
+        <h1>Angebote</h1>
 
         <?php
         include('includes/functions/dbConnect.php');

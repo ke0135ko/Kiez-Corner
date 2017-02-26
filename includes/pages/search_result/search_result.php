@@ -11,10 +11,12 @@
     $score = $_REQUEST["Score"];
 
     //execute search in DB
-    $selectAdvertisement = "select * from advertisements a join member m on a.memberid=m.membno left join pictures p on a.advid=p.assigned_adv where (advtype = '$typeAdv') $operator (headline like '%$headline%') $operator (descrip like '%$descrip%') $operator (score = '$score')";
+    $selectAdvertisement = "select * from advertisements a join member m on a.memberid=m.membno left join pictures p on a.advid=p.assigned_adv where (advtype = '$typeAdv') "
+                         . "$operator (headline like '%$headline%') $operator (descrip like '%$descrip%') $operator (score = '$score')";
     $queryAdvertisement = mysqli_query($conn, $selectAdvertisement) or die("$selectAdvertisement");
-
+    
     //display result
+    
     ?>
 
     <a href="index.php?page=insertForm" class="KiezButton_newAdv">
@@ -50,7 +52,7 @@
                         </tr>
                         <tr>
                         <tr>
-                            <td>Art</td>
+                            <td>Typ</td>
                             <td><?php 
                                     if($rowAdvertisement['ADVTYPE'] === "OFFER"){
                                         echo "Angebot";
@@ -103,8 +105,9 @@
                 </table>
             </li>
     <?php
-}
-include "includes/functions/dbClose.php";
-?>  
+        }
+
+    include "includes/functions/dbClose.php";
+    ?>  
     </ul>  
 </div>

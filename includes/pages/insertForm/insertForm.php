@@ -13,7 +13,11 @@
         ?>
         <div class="div">
 
+<<<<<<< Updated upstream
             <h3>Bitte melde dich erst an</h3>
+=======
+            <h3>Bitte Anmelden</h3>
+>>>>>>> Stashed changes
 
         <?php } else { ?>
 
@@ -37,7 +41,7 @@
                             </tr>
                             <tr>
                                 <td><label for="Descrip">Beschreibung*:</label></td>
-                                <td><textarea name="Descrip" cols="34" rows="5" maxlength="200" required 
+                                <td><textarea name="Descrip" cols="34" rows="4" maxlength="200" required 
                                               placeholder="Bitte geben Sie eine Beschreibung  mit max. 200 Zeichen ein..."></textarea></td>
                             </tr>
                             <tr>
