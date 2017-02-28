@@ -160,6 +160,7 @@
          <li><a href="includes/pages/documentation/Images/Funktion-Suche.png">Suche</a></li>
          <li><a href="includes/pages/documentation/Images/Funktion-Inserate.png">Seiten mit Inseraten</a></li>
          <li><a href="includes/pages/documentation/Images/Funktion-InseratNeu.png">Neues Inserat</a></li>
+         <li><a href="includes/pages/documentation/Images/Funktion-Inserate-Ändern.png">Inserat ändern</a></li>
          <li><a href="includes/pages/documentation/Images/Funktion-Registrieren1.png">Registrieren Seite 1</a></li>
          <li><a href="includes/pages/documentation/Images/Funktion-Registrieren2.png">Registrieren Seite 2</a></li>
          <li><a href="includes/pages/documentation/Images/Funktion-Registrieren3.png">Registrieren Seite 3</a></li>
