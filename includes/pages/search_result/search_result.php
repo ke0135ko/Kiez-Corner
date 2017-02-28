@@ -48,7 +48,7 @@
                         <tr>
                             <td></td>
                             <td>
-                                <img id="picture" src ="uploadedImages/<?php echo $rowAdvertisement["TITLE"] . "." . $picType; ?>" onclick="openPic(<?php echo $rowADV["ASSIGNED_ADV"]; ?>)" alt ="kein Bild verfügbar">
+                                <img id="picture" src ="uploadedImages/<?php echo $rowAdvertisement["TITLE"] . "." . $picType; ?>" onclick="openPic(<?php echo $rowAdvertisement["ASSIGNED_ADV"]; ?>)" alt ="kein Bild verfügbar">
                             </td>
                         </tr>
                         <tr>
