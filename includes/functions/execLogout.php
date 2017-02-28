@@ -5,4 +5,4 @@ if(!isset($_SESSION)) {
     }
 session_unset();
 session_destroy();
-header('location: \Kiez-Corner\index.php?page=logout');
+header('location: ../../index.php?page=logout');

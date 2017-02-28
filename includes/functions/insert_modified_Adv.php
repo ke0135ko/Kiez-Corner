@@ -1,44 +1,17 @@
 <?php
-
+include 'dbConnect.php';
 session_start();
+
+$queryADV = "select * from advertisements a join pictures p on a.advid=p.assigned_adv where a.advid ='". $_REQUEST["correctAdv"]."'";
+$resultADV = mysqli_query($conn, $queryADV);
+$rowADV = mysqli_fetch_array($resultADV);
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //VARIABLES
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //transmitted datas
 $TypeAdvertisement = strtoupper($_REQUEST['typeAdvertisement']);
-$Headline = $_REQUEST['Headline'];
-$Descrip = $_REQUEST['Descrip'];
-$Zip = $_REQUEST['Zip'];
-$phone = $_REQUEST['Phone'];
-$mail = $_REQUEST['Mail'];
-$Score = $_REQUEST['Score'];
-
-include 'dbConnect.php';
-
-//assign correct Membno
-$user = $_SESSION["USERNAME"];
-$selectMembno = "select USERID from login where USERNAME = '$user'";
-$queryMembno = mysqli_query($conn, $selectMembno);
-$UserID = mysqli_fetch_array($queryMembno);
-$membno = $UserID["USERID"];
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//INSERT ADVERTISEMENT/PICTURE
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//FIRST: INSERT ADVERTISEMENT IN DB
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//calculate new AdvID
-$newAdvid;
-$selectCurrentAdvid = 'select max(ADVID) from advertisements';
-$queryAdvid = mysqli_query($conn, $selectCurrentAdvid) or die("Abfrage AdvID fehlgeschlagen");
-$row2 = mysqli_fetch_array($queryAdvid);
-
-if ($row2['max(ADVID)'] == NULL) {
-    $newAdvid = 1;
-} else {
-    $newAdvid = $row2['max(ADVID)'] + 1;
-}
 
 //ADVTYPE Request or Offer
 $AdvType;
@@ -47,18 +20,37 @@ if ($TypeAdvertisement == 'ANGEBOT') {
 } else {
     $AdvType = 'REQUEST';
 }
+$Headline = $_REQUEST['Headline'];
+$Descrip = $_REQUEST['Descrip'];
+$Zip = $_REQUEST['Zip'];
+$phone = $_REQUEST['Phone'];
+echo $phone;
+$mail = $_REQUEST['Mail'];
+$Score = $_REQUEST['Score'];
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//UPDATE ADVERTISEMENT/PICTURE
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FIRST: UPDATE ADVERTISEMENT IN DB
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Insert into DB
-$sql2 = "INSERT INTO advertisements
-                  VALUES ('$newAdvid', '$membno', '$AdvType', '$Headline', '$Descrip', '$Zip', '$phone', '$mail', '$Score')";
-if ($conn->query($sql2) === FALSE) {
+include 'dbConnect.php';
+$sql2 = "UPDATE advertisements
+         SET ADVTYPE='$AdvType', HEADLINE='$Headline', DESCRIP='$Descrip',A_ZIP='$Zip', A_PHONE='$phone', MAIL='$mail', SCORE='$Score'
+         WHERE ADVID ='".$_REQUEST["correctAdv"]."'";
 
+if ($conn->query($sql2) === FALSE) {
+   
     echo "ERROR: " . $sql2 . "<br>" . $conn->error . "<br>";
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //SECOND: FILE UPLOAD
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //check if picture is available
 if ($_FILES['Picture']['size'] > 0) {
 
@@ -83,28 +75,12 @@ if ($_FILES['Picture']['size'] > 0) {
                     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     //INSERT PICTURE IN DB
                     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    //calculate new Picid
-                    $newPicid;
-                    $selectCurrentPicid = 'select max(PICID) from pictures';
-                    $queryPicid = mysqli_query($conn, $selectCurrentPicid) or die("Abfrage PicID fehlgeschlagen");
-                    $row1 = mysqli_fetch_array($queryPicid);
+                    
+                    $sql1 = "UPDATE pictures
+                             SET TITLE='$membno$fileName[0]',TYPE='$fileType[1]',SIZE='$fileSize'
+                             WHERE ASSIGNED_ADV ='".$_REQUEST["correctAdv"]."'";
+                    if ($conn->query($sql1) === FALSE) {
 
-                    if ($row1['max(PICID)'] == NULL) {
-                        $newPicid = 1;
-                    } else {
-                        $newPicid = $row1['max(PICID)'] + 1;
-                    }
-
-                    //Insert into DB
-                    $sql1 = "INSERT INTO pictures
-                                VALUES ('$newPicid', '$membno', '$membno$fileName[0]', '$fileType[1]', '$fileSize', '$newAdvid')";
-                    if ($conn->query($sql1) === TRUE) {
-                        if ($AdvType == 'REQUEST') {
-                            header('location: ../../index.php?page=requests');
-                        } else {
-                            header('location: ../../index.php?page=offers');
-                        }
-                    } else {
                         echo "ERROR: " . $sql1 . "<br>" . $conn->error . "<br>";
                     }
                 } else {
@@ -120,6 +96,7 @@ if ($_FILES['Picture']['size'] > 0) {
         . "Das Bild wurde nicht gespeichert.";
     }
 } else {
+   
     if ($AdvType == 'REQUEST') {
         header('location: ../../index.php?page=requests');
     } else {

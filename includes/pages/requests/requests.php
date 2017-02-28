@@ -4,173 +4,93 @@
         <i class="fa fa-plus"> Neues Inserat</i>
     </a>
 
-    <ul class="flex-container">
+    <h1>Gesuche</h1>
 
-<<<<<<< Updated upstream
-        <h3>Hier finden Sie alle Gesuche</h3>
-=======
-        <h1>Gesuche</h1>
->>>>>>> Stashed changes
+    <ul class="flex-container">
 
         <?php
         include('includes/functions/dbConnect.php');
-        $queryADV = "select * from advertisements where advtype like 'REQUEST'";
+        $queryADV = "select * from advertisements a join member m on a.memberid=m.membno left join pictures p on a.advid=p.assigned_adv where advtype like 'REQUEST'";
         $resultADV = mysqli_query($conn, $queryADV);
         $picType;
-
+        
         //display all results
         while ($rowADV = mysqli_fetch_array($resultADV)) {
-
-<<<<<<< Updated upstream
-        //find picture
-        $queryPIC = "select name, type from pictures where assigned_adv = " . $rowADV['ADVID'];
-        $resultPIC = mysqli_query($conn, $queryPIC);
-        $rowPIC = mysqli_fetch_array($resultPIC);
-
-        //assign correct picture type
-        if ($rowPIC["type"] == "jpeg") {
-        $picType = "jpg";
-        } else {
-        $picType = $rowPIC["tpye"];
-        }
-        ?>
-        <!--each result is one list-item in the flex container-->
-        <li>
-            <table class="tableAdvertisement">
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <span><img id="picture" src ="uploadedImages/<?php echo $rowPIC["name"].".".$picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Titel</td>
-                        <td><?php echo $rowADV['HEADLINE']; ?> </td>
-                    </tr>
-                    <tr>
-                        <td>Beschreibung</td>
-                        <td><p><?php echo $rowADV['DESCRIP']; ?></p></td>
-                    </tr>
-                    <tr>
-                        <td>PLZ</td>
-                        <td><?php echo $rowADV['ZIP']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>Telefon</td>
-                        <td><?php echo $rowADV['PHONE']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>Mail</td>
-                        <td><?php echo $rowADV['MAIL']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>Kiez Punkte</td>
-                        <td><?php echo $rowADV['SCORE']; ?></td>
-                    </tr>
-                    <?php
-                    if ((isset($_SESSION["USERID"])) && ($_SESSION["USERID"] == $rowADV['MEMBERID'])) {
-                    ?>
-                    <tr>
-                        <td>
-                            <a href="index.php?page=insertForm" class="KiezButton_Adv">
-                                <i class="fa fa-pencil-square-o"></i> Ändern
-                            </a>
-                        </td>
-                        <td>
-                            <a href="index.php?page=insertForm" class="KiezButton_Adv">
-                                <i class="fa fa-times"></i> Löschen
-                            </a>
-                        </td>
-                    </tr>
-                    <?php
-                    } ?>
-                    </tbody>
-                    </table>
-
-                    </li>
-                    <?php
-
-                    }
-                    include 'includes/functions/dbClose.php';
-                    ?>  
-                    </ul>
-                    </div>
-=======
-            //find picture
-            $queryPIC = "select name, type from pictures where assigned_adv = " . $rowADV['ADVID'];
-            $resultPIC = mysqli_query($conn, $queryPIC);
-            $rowPIC = mysqli_fetch_array($resultPIC);
-
+            
             //assign correct picture type
-            if ($rowPIC["type"] == "jpeg") {
+            if ($rowADV["TYPE"] == "jpeg") {
                 $picType = "jpg";
             } else {
-                $picType = $rowPIC["tpye"];
+                $picType = $rowADV["TYPE"];
             }
             ?>
             <!--each result is one list-item in the flex container-->
             <li>
-                <table class="tableAdvertisement">
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <span><img id="picture" src ="uploadedImages/<?php echo $rowPIC["name"] . "." . $picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Titel</td>
-                            <td><?php echo $rowADV['HEADLINE']; ?> </td>
-                        </tr>
-                        <tr>
-                            <td>Beschreibung</td>
-                            <td><p><?php echo $rowADV['DESCRIP']; ?></p></td>
-                        </tr>
-                        <tr>
-                            <td>PLZ</td>
-                            <td><?php echo $rowADV['ZIP']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Telefon</td>
-                            <td><?php echo $rowADV['PHONE']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Mail</td>
-                            <td><?php echo $rowADV['MAIL']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Kiez Punkte</td>
-                            <td><?php echo $rowADV['SCORE']; ?></td>
-                        </tr>
-                        <?php
-                        echo $_SESSION["USERID"];
-                        if (isset($_SESSION["USERID"]) && $_SESSION["USERID"] == $rowADV['MEMBERID']) {
-                            ?>
+                <form action="index.php?page=modifyAdv" name="Advertisements" method="POST" enctype="multipart/form-data">
+                    <table class="tableAdvertisement">
+                        <tbody>
                             <tr>
+                                <td></td>
                                 <td>
-                                    <a href="index.php?page=insertForm" class="KiezButton_newAdv">
-                                        <i class="fa fa-pencil-square-o"> Ändern</i>
-                                    </a> 
-                                </td>
-                                <td>
-                                    <a href="index.php?page=insertForm" class="KiezButton_newAdv">
-                                        <i class="icon-remove"> Löschen</i>
-                                    </a>
+                                    <span><img id="picture" src ="uploadedImages/<?php echo $rowADV["TITLE"] . "." . $picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Titel</td>
+                                <td><?php echo $rowADV['HEADLINE']; ?> </td>
+                            </tr>
+                            <tr>
+                                <td>Beschreibung</td>
+                                <td><p><?php echo $rowADV['DESCRIP']; ?></p></td>
+                            </tr>
+                            <tr>
+                                <td>Inserent</td>
+                                <td><?php echo $rowADV['ADVID']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>PLZ</td>
+                                <td><?php echo $rowADV['A_ZIP']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Telefon</td>
+                                <td><?php echo $rowADV['A_PHONE']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Mail</td>
+                                <td><?php echo $rowADV['MAIL']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Kiez Punkte</td>
+                                <td><?php echo $rowADV['SCORE']; ?></td>
+                            </tr>
                             <?php
-                        } else {
-                            echo "Test";    
-                            }?>
+                            if ((isset($_SESSION["USERID"])) && ($_SESSION["USERID"] == $rowADV['MEMBNO'])) {
+                                
+                                ?>
+                                <tr>
+                        <td>
+                            <button type="submit" class="KiezButton_Adv">
+                                <i class="fa fa-pencil-square-o"> Ändern</i>
+                            </button>
+                            <input type="hidden" name="currAdv" value="<?php echo $rowADV['ADVID']; ?>" />
+                        </td>
+                        <td>
+                            <button onclick="return deleteAdv();" class="KiezButton_Adv">
+                                <i class="fa fa-times"> Löschen</i>
+                            </button>
+                            <input type="hidden" name="currAdv" value="<?php echo $rowADV['ADVID']; ?>" />
+                        </td>
+                    </tr>
+                                <?php }
+                            ?>
                         </tbody>
                     </table>
-
-                </li>
-                <?php
-            }
-            include 'includes/functions/dbClose.php';
-            ?>  
+                </form>
+            </li>
+            <?php
+        }
+        include 'includes/functions/dbClose.php';
+        ?>  
     </ul>
 </div>
->>>>>>> Stashed changes
+

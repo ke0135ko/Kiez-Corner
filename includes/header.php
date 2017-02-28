@@ -6,16 +6,16 @@
     if (isset($_SESSION["USERNAME"])) {
         include "includes/functions/dbConnect.php";
 
-        //find name according username;
-        $userName = $_SESSION["USERNAME"];
-        $selectName = "select name from member m join login l on m.membno=l.userid where username = '$userName'";
+        //find name according userid;
+        $userID = $_SESSION["USERID"];
+        $selectName = "select name from member m join login l on m.membno=l.userid where membno = '$userID'";
         $queryName = mysqli_query($conn, $selectName);
         $result = mysqli_fetch_array($queryName);
         
-        //only display first name
+        //display first name only
         $firstName = explode(" ", $result["name"]);
         
-        echo "<h3>Hallo " . $firstName[0] . "</h3>";
+        echo "<h3><img src=\"img/Blatt.jpg\" alt=\"Blatt\" height=\"20\"/>Hallo " . $firstName[0] . " <img src=\"img/Blatt.jpg\" alt=\"Blatt\" height=\"20\"/></h3>";
 
         include "includes/functions/dbClose.php";
     }
@@ -28,6 +28,7 @@
                 <div class="dropdown-content">
                     <a href="index.php?page=requests">Gesuche</a> 
                     <a href="index.php?page=offers">Angebote</a>
+                    <a href="index.php?page=insertForm">Neu</a>
                 </div>
             </li>
             <li><a href="index.php?page=search_form">Suche</a></li>

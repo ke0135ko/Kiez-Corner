@@ -15,7 +15,7 @@ $findScore = mysqli_query($conn, $selectScore);
                 <table border="0">
                     <tbody>
                         <tr>
-                            <td><label for="typeAdvertisement">Art des Inserates:</label></td>
+                            <td><label for="typeAdvertisement">Typ:</label></td>
                             <td><select name="typeAdvertisement">
                                     <option value="no selection"></option>
                                     <option value="OFFER" selected="selected" >Angebot</option>

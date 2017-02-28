@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Feb 2017 um 18:34
+-- Erstellungszeit: 28. Feb 2017 um 15:49
 -- Server-Version: 10.1.16-MariaDB
--- PHP-Version: 7.0.9
+-- PHP-Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,8 +32,8 @@ CREATE TABLE `advertisements` (
   `ADVTYPE` enum('REQUEST','OFFER') COLLATE latin1_general_cs NOT NULL,
   `HEADLINE` varchar(50) COLLATE latin1_general_cs NOT NULL,
   `DESCRIP` varchar(200) COLLATE latin1_general_cs DEFAULT NULL,
-  `ZIP` int(5) NOT NULL,
-  `PHONE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `A_ZIP` int(5) NOT NULL,
+  `A_PHONE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
   `MAIL` varchar(80) COLLATE latin1_general_cs DEFAULT NULL,
   `SCORE` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
@@ -42,10 +42,11 @@ CREATE TABLE `advertisements` (
 -- Daten für Tabelle `advertisements`
 --
 
-INSERT INTO `advertisements` (`ADVID`, `MEMBERID`, `ADVTYPE`, `HEADLINE`, `DESCRIP`, `ZIP`, `PHONE`, `MAIL`, `SCORE`) VALUES
-(4, 19010248, 'OFFER', 'Angbot mit Hintergrundbild', 'Beschreibung', 99092, '12345678', '', 1),
-(5, 19010248, 'OFFER', 'Fahrrad', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu', 99092, '0815-1234', 'test@mail.com', 8),
-(6, 19010248, 'REQUEST', 'Bohrmaschine', 'Jemand musste Josef K.\r\n\r\nverleumdet haben, denn ohne dass er etwas BÃ¶ses getan hÃ¤tte, wurde er eines Morgens verhaftet. Â»Wie ein Hund! Â« sagte er, es ', 99084, '', 'mail@test.com', 4);
+INSERT INTO `advertisements` (`ADVID`, `MEMBERID`, `ADVTYPE`, `HEADLINE`, `DESCRIP`, `A_ZIP`, `A_PHONE`, `MAIL`, `SCORE`) VALUES
+(5, 19010248, 'REQUEST', 'Fahrrad', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu', 99092, '0815-1234', 'test@mail.com', 5),
+(6, 19010248, 'OFFER', 'Bohrmaschine', 'Jemand musste Josef K.\r\n\r\nverleumdet haben, denn ohne dass er etwas BÃ¶ses getan hÃ¤tte, wurde er eines Morgens verhaftet. Â»Wie ein Hund! Â« sagte er, es ', 99084, '', 'mail@test.com', 5),
+(7, 15025145, 'OFFER', 'Angebot ohne Bild', 'Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Ma', 99090, '1234-5678', '', 1),
+(8, 15025145, 'REQUEST', 'Gesuch ohne Bild', 'Es gibt im Moment in diese Mannschaft, oh, einige Spieler vergessen ihnen Profi was sie sind. Ich lese nicht sehr viele Zeitungen, aber ich habe gehÃ¶rt viele Situationen. Erstens: wir haben nicht off', 99045, '', 'Max@Musterman.com', 8);
 
 -- --------------------------------------------------------
 
@@ -66,10 +67,7 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`LOGID`, `USERID`, `USERNAME`, `PASSWORD`) VALUES
 (1, 19010248, 'ke0135ko', 'Bei_FH01'),
-(2, 15025145, 'Ma0815Mu', 'Test1234'),
-(3, 20023421, 'Test1234', 'Test1234'),
-(4, 20023742, 'ke0135ko', 'Test1234'),
-(5, 20023922, 'ke0135ko', 'Test1234');
+(2, 15025145, 'Ma0815Mu', 'Test1234');
 
 -- --------------------------------------------------------
 
@@ -81,10 +79,10 @@ CREATE TABLE `member` (
   `MEMBNO` int(11) NOT NULL,
   `NAME` varchar(50) COLLATE latin1_general_cs NOT NULL,
   `ADDRESS` varchar(80) COLLATE latin1_general_cs NOT NULL,
-  `ZIP` int(5) NOT NULL,
+  `M_ZIP` int(5) NOT NULL,
   `CITY` varchar(50) COLLATE latin1_general_cs NOT NULL DEFAULT 'ERFURT',
   `EMAIL` varchar(80) COLLATE latin1_general_cs DEFAULT NULL,
-  `PHONE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `M_PHONE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
   `POINTS_ACCOUNT` int(2) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 
@@ -92,12 +90,9 @@ CREATE TABLE `member` (
 -- Daten für Tabelle `member`
 --
 
-INSERT INTO `member` (`MEMBNO`, `NAME`, `ADDRESS`, `ZIP`, `CITY`, `EMAIL`, `PHONE`, `POINTS_ACCOUNT`) VALUES
+INSERT INTO `member` (`MEMBNO`, `NAME`, `ADDRESS`, `M_ZIP`, `CITY`, `EMAIL`, `M_PHONE`, `POINTS_ACCOUNT`) VALUES
 (15025145, 'Max Mustermann', 'Musterstr. 25', 99084, 'ERFURT', 'mail@test.com', '', 5),
-(19010248, 'Kevin Kosinski', 'Blumenstr. 8', 99092, 'ERFURT', 'test@mail.com', '', 5),
-(20023421, 'Kevin Kosinski', 'Blumenstr. 8', 99092, 'ERFURT', 'test@mail.com', '', 5),
-(20023742, 'Kevin Kosinski', 'Blumenstr. 8', 99092, 'ERFURT', 'test@mail.com', '', 5),
-(20023922, 'Kevin Kosinski', 'Blumenstr. 8', 99092, 'ERFURT', '', '0815-1234', 5);
+(19010248, 'Kevin Kosinski', 'Blumenstr. 8', 99092, 'ERFURT', 'test@mail.com', '', 5);
 
 -- --------------------------------------------------------
 
@@ -108,7 +103,7 @@ INSERT INTO `member` (`MEMBNO`, `NAME`, `ADDRESS`, `ZIP`, `CITY`, `EMAIL`, `PHON
 CREATE TABLE `pictures` (
   `PICID` int(6) NOT NULL,
   `MEMBERID` int(11) NOT NULL,
-  `NAME` varchar(50) COLLATE latin1_general_cs NOT NULL,
+  `TITLE` varchar(50) COLLATE latin1_general_cs NOT NULL,
   `TYPE` varchar(10) COLLATE latin1_general_cs NOT NULL,
   `SIZE` int(11) NOT NULL,
   `ASSIGNED_ADV` int(6) NOT NULL
@@ -118,7 +113,7 @@ CREATE TABLE `pictures` (
 -- Daten für Tabelle `pictures`
 --
 
-INSERT INTO `pictures` (`PICID`, `MEMBERID`, `NAME`, `TYPE`, `SIZE`, `ASSIGNED_ADV`) VALUES
+INSERT INTO `pictures` (`PICID`, `MEMBERID`, `TITLE`, `TYPE`, `SIZE`, `ASSIGNED_ADV`) VALUES
 (1, 19010248, '19010248fahrrad', 'jpeg', 10541, 5),
 (2, 19010248, '19010248borhmaschine', 'jpeg', 5149, 6);
 
@@ -183,7 +178,7 @@ ALTER TABLE `member`
 ALTER TABLE `pictures`
   ADD PRIMARY KEY (`PICID`),
   ADD KEY `MEMBERID` (`MEMBERID`),
-  ADD KEY `NAME` (`NAME`),
+  ADD KEY `NAME` (`TITLE`),
   ADD KEY `ASSIGNED_ADV` (`ASSIGNED_ADV`);
 
 --

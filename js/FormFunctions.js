@@ -1,9 +1,14 @@
 //no leading and trailing blank space in str
+//helper function
 function trim (str)
 {
      return str.replace (/^\s+|\s+$/g, '');
 }
-
+function updateScoreInput(val)
+    {
+        document.getElementById('scoreInput').value = val;
+    }
+    
 function validatePhoneOrMail()
 {
     var phone_element = document.getElementById("Phone");
@@ -86,7 +91,34 @@ function validateZip()
         return true;
     } else 
     {
-        alert("Die PLZ muss mit 990 beginnen und 5 Zeichen lang sein!");
+        alert("Die PLZ muss mit 990 beginnen und 5 Zeichen lang sein!" + zip_element.value);
+        return false;
+    }
+}
+
+function validateZipLength()
+{
+    var plz_element = document.getElementById("PlzUser");
+    
+    if (plz_element.value.length < 5 || plz_element.value.length > 5 )
+    {
+        alert("Die PLZ muss genau 5 Zeichen lang sein!");
+        return false;
+    } else { 
+        return true;
+    }
+}
+
+function deleteAdv()
+{
+    var ok = confirm("Möchtest du das Inserat wirklich löschen?");
+    if(ok === true)
+    {
+        window.location.href = "includes/functions/delete_advertisement.php";
+        
+    } 
+    else
+    {
         return false;
     }
 }

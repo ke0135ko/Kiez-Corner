@@ -7,11 +7,11 @@
     $_SESSION["USERNAME"] = $_REQUEST["Username"];
     $_SESSION["PASSWORD"] = $_REQUEST["Password2"];    
     ?>
-        <h3>Bitte überprüfe deine Daten und schließe den Vorgang durch einen Klick auf "Abschicken" ab.</h3>
+        <h3>Bitte überprüfe deine Daten und schließe den Vorgang durch einen Klick auf "Absenden" ab.</h3>
         
         <form action="includes/functions/insert_newUser.php" name="newRegistrate4" method="POST" class="form">
             <div>
-                <table style="border: solid 1px" class="tableAdvertisement">
+                <table style="border: solid 1px; margin: auto" class="tableAdvertisement">
                     <tbody>
                         <tr>
                             <td><label for="Surname">Vorname:</label></td>
@@ -48,7 +48,7 @@
                         <tr>
                             <td><a class="KiezButton" href ="includes/functions/destroySession.php" name="home">Startseite</a></td>
                             <td><button class="KiezButton" type="submit" name="submit">
-                                    Abschicken
+                                    Absenden
                                 </button>
                             </td>
                         </tr>

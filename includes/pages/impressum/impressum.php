@@ -1,9 +1,9 @@
 <div class="div">
     <h1>Unterstützung gesucht!</h1>
     <article style="text-align: center">
-        <p>Zur Umsetzung und Fertigstellung weiterer Funktionalitäten suchen wir DICH als Unterstützung.
-           Du bist motiviert, an neuen Webtechnologien interesssiert und sprühst vor kreativen Ideen? Dann bist du bei 
-           <em style="color: rgba(136, 202, 136, 0.8)">KiezCorner</em> genau richtig.<br>
+        <p>Zur Umsetzung und Fertigstellung weiterer Funktionalitäten suchen wir DICH als Unterstützung.<br>
+            Du bist motiviert, an neuen Webtechnologien interesssiert und sprühst vor kreativen Ideen?<br>
+            Dann bist du bei <em style="color: rgba(136, 202, 136, 0.8)">KiezCorner</em> genau richtig.<br>
            Bewirb dich gleich jetzt!
         </p>
         <section>
@@ -48,7 +48,9 @@
                     </div>
                 </fieldset>
             </form><br>
-            Detaillierte Informationen zum Projekt findest du <a href="index.php?page=documentation">hier...</a>
+            
+            Detaillierte Informationen zum Projekt findest du auch <a href="index.php?page=documentation">hier...</a><br>
+            Bei offenen Fragen wende dich einfach per Mail an Kevin Kosinski: kevin.kosinski@fh-erfurt.de.
         </section>
     </article>
 </div>

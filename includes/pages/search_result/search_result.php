@@ -1,6 +1,8 @@
+
 <div class="div">
 
     <?php
+    
     include "includes/functions/dbConnect.php";
 
     //transmitted datas
@@ -28,26 +30,23 @@
         $picType;
 
         while ($rowAdvertisement = mysqli_fetch_array($queryAdvertisement)) {
-
-
-            $queryPicture = "select name, type from pictures where assigned_adv = " . $rowAdvertisement['ADVID'];;
-            $resultPicture = mysqli_query($conn, $queryPicture);
-            $rowPicture = mysqli_fetch_array($resultPicture);
-
+            
             //assign correct picture type
-            if ($rowPicture["type"] == "jpeg") {
+            if ($rowAdvertisement["TYPE"] == "jpeg") {
                 $picType = "jpg";
             } else {
-                $picType = $rowPicture["tpye"];
+                $picType = $rowAdvertisement["TYPE"];
             }
             ?>
-            <li>
+        
+        <li>
+            <form action="index.php?page=modifyAdv" name="Advertisements" method="POST" enctype="multipart/form-data">
                 <table class="tableAdvertisement">
                     <tbody>
                         <tr>
                             <td></td>
                             <td>
-                                <img id="picture" src ="uploadedImages/<?php echo $rowPicture["name"] . "." . $picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar">
+                                <img id="picture" src ="uploadedImages/<?php echo $rowAdvertisement["TITLE"] . "." . $picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar">
                             </td>
                         </tr>
                         <tr>
@@ -69,12 +68,16 @@
                             <td><?php echo $rowAdvertisement['DESCRIP']; ?></td>
                         </tr>
                         <tr>
+                            <td>Inserent</td>
+                            <td><?php echo $rowAdvertisement['NAME']; ?></td>
+                        </tr>
+                        <tr>
                             <td>PLZ</td>
-                            <td><?php echo $rowAdvertisement['ZIP']; ?></td>
+                            <td><?php echo $rowAdvertisement['A_ZIP']; ?></td>
                         </tr>
                         <tr>
                             <td>Telefon</td>
-                            <td><?php echo $rowAdvertisement['PHONE']; ?></td>
+                            <td><?php echo $rowAdvertisement['A_PHONE']; ?></td>
                         </tr>
                         <tr>
                             <td>Mail</td>
@@ -85,29 +88,32 @@
                             <td><?php echo $rowAdvertisement['SCORE']; ?></td>
                         </tr>
                         <?php
-                    if ((isset($_SESSION["USERID"])) && ($_SESSION["USERID"] == $rowAdvertisement['MEMBERID'])) {
+                    if ((isset($_SESSION["USERID"])) && ($_SESSION["USERID"] == $rowAdvertisement['MEMBNO'])) {
                     ?>
                     <tr>
                         <td>
-                            <a href="index.php?page=insertForm" class="KiezButton_Adv">
-                                <i class="fa fa-pencil-square-o"></i> Ändern
-                            </a>
+                            <button type="submit" class="KiezButton_Adv">
+                                <i class="fa fa-pencil-square-o"> Ändern</i>
+                            </button>
+                            <input type="hidden" name="currAdv" value="<?php echo $rowAdvertisement['ADVID']; ?>" />
                         </td>
                         <td>
-                            <a href="index.php?page=insertForm" class="KiezButton_Adv">
-                                <i class="fa fa-times"></i> Löschen
-                            </a>
+                            <button onclick="return deleteAdv();" class="KiezButton_Adv">
+                                <i class="fa fa-times"> Löschen</i>
+                            </button>
+                            <input type="hidden" name="currAdv" value="<?php echo $rowAdvertisement['ADVID']; ?>" />
                         </td>
                     </tr>
                     <?php
                     } ?>
                     </tbody>
                 </table>
+                </form>
             </li>
+        
     <?php
         }
-
     include "includes/functions/dbClose.php";
-    ?>  
+    ?>
     </ul>  
 </div>

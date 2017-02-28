@@ -21,7 +21,7 @@
                 <table border="0">
                     <tbody>
                         <tr>
-                            <td><label for="Mail">Mail:</label></td>
+                            <td><label for="Mail">E-Mail:</label></td>
                             <td><input type="email" maxlength="80" name="Mail" id="Mail"></td>
                         </tr>
                         <tr>

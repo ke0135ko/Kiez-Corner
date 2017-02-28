@@ -1,34 +1,24 @@
-<script>
-    function updateScoreInput(val)
-    {
-        document.getElementById('scoreInput').value = val;
-    }
-</script>
-
 <noscript>Diese Seite wird nur bei aktiviertem Javascript richtig angezeigt</noscript>
 
+<div class="div">
     <?php
     //check for valid Session
     if (!isset($_SESSION["USERNAME"])) {
         ?>
-        <div class="div">
 
-<<<<<<< Updated upstream
-            <h3>Bitte melde dich erst an</h3>
-=======
-            <h3>Bitte Anmelden</h3>
->>>>>>> Stashed changes
+    <h3>Bitte melde dich erst an</h3>
 
         <?php } else { ?>
 
             <h3>Bitte gib folgende Daten ein:</h3>
+            <div>
             <form action="includes/functions/insert_advertisement.php" name="NewAdvertisement" method="POST" enctype="multipart/form-data" class="form">
                 <fieldset>
                     <legend>Beschreibung Inserat</legend>
                     <table border="0">
                         <tbody>
                             <tr>
-                                <td><label for="typeAdvertisement">Art des Inserates:</label></td>
+                                <td><label for="typeAdvertisement">Typ:</label></td>
                                 <td><select name="typeAdvertisement" default   >
                                         <option selected="selected" >Angebot</option>
                                         <option>Gesuch</option>
@@ -47,7 +37,7 @@
                             <tr>
                                 <td><label for="Score">Kiez Punkte*:</label></td>
                                 <td><input type="range" name="Score" max="10" min="0" onchange="updateScoreInput(this.value);"required/>
-                                    <input type="text" placeholder="5" style="width: 70px" id="scoreInput"/>
+                                    <input type="text" placeholder="5" style="width: 100px" id="scoreInput"/>
                                 </td>
                             </tr>
                             <tr>

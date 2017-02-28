@@ -46,7 +46,7 @@ if (!empty($_GET['page'])) {
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="author" content="Kevin Kosinski">
-        <script src="js/chkForm.js" type="text/javascript"></script>
+        <script src="js/FormFunctions.js" type="text/javascript"></script>
         <script src="https://use.fontawesome.com/4ce204c4a3.js"></script>
         <link rel="icon" type="image/jpg" href="img/logo.jpg">
         <link rel="stylesheet" href="css/screen.css">

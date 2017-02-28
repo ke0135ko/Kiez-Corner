@@ -3,40 +3,36 @@
     <a href="index.php?page=insertForm" class="KiezButton_newAdv">
        <i class="fa fa-plus"> Neues Inserat</i>
     </a>
-
+    
+    <h1>Angebote</h1>
+    
     <ul class="flex-container">
-
-        <h1>Angebote</h1>
 
         <?php
         include('includes/functions/dbConnect.php');
-        $queryADV = "select * from advertisements where advtype like 'OFFER'";
+        $queryADV = "select * from advertisements a join member m on a.memberid=m.membno left join pictures p on a.advid=p.assigned_adv where a.advtype like 'OFFER'";
         $resultADV = mysqli_query($conn, $queryADV);
         $picType;
 
         //display all results
         while ($rowADV = mysqli_fetch_array($resultADV)) {
 
-            //find picture
-            $queryPIC = "select name, type from pictures where assigned_adv = " . $rowADV['ADVID'];
-            $resultPIC = mysqli_query($conn, $queryPIC);
-            $rowPIC = mysqli_fetch_array($resultPIC);
-
             //assign correct picture type
-            if ($rowPIC["type"] == "jpeg") {
+            if ($rowADV["TYPE"] == "jpeg") {
                 $picType = "jpg";
             } else {
-                $picType = $rowPIC["tpye"];
+                $picType = $rowADV["TYPE"];
             }
             ?>
             <!--each result is one list-item in the flex container-->
             <li>
+                <form action="index.php?page=modifyAdv" name="Advertisements" method="POST" enctype="multipart/form-data">
                 <table class="tableAdvertisement">
                     <tbody>
                         <tr>
                             <td></td>
                             <td>
-                                <span><img id="picture" src ="uploadedImages/<?php echo $rowPIC["name"] . "." . $picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
+                                <span><img id="picture" src ="uploadedImages/<?php echo $rowADV["TITLE"] . "." . $picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
                             </td>
                         </tr>
                         <tr>
@@ -48,12 +44,16 @@
                             <td><p><?php echo $rowADV['DESCRIP']; ?></p></td>
                         </tr>
                         <tr>
+                            <td>Inserent</td>
+                            <td><?php echo $rowADV['NAME']; ?></td>
+                        </tr>
+                        <tr>
                             <td>PLZ</td>
-                            <td><?php echo $rowADV['ZIP']; ?></td>
+                            <td><?php echo $rowADV['A_ZIP']; ?></td>
                         </tr>
                         <tr>
                             <td>Telefon</td>
-                            <td><?php echo $rowADV['PHONE']; ?></td>
+                            <td><?php echo $rowADV['A_PHONE']; ?></td>
                         </tr>
                         <tr>
                             <td>Mail</td>
@@ -64,24 +64,27 @@
                             <td><?php echo $rowADV['SCORE']; ?></td>
                         </tr>
                         <?php
-                    if ((isset($_SESSION["USERID"])) && ($_SESSION["USERID"] == $rowADV['MEMBERID'])) {
+                    if ((isset($_SESSION["USERID"])) && ($_SESSION["USERID"] == $rowADV['MEMBNO'])) {
                     ?>
                     <tr>
                         <td>
-                            <a href="index.php?page=insertForm" class="KiezButton_Adv">
-                                <i class="fa fa-pencil-square-o"></i> Ändern
-                            </a>
+                            <button type="submit" class="KiezButton_Adv">
+                                <i class="fa fa-pencil-square-o"> Ändern</i>
+                            </button>
+                            <input type="hidden" name="currAdv" value="<?php echo $rowADV['ADVID']; ?>" />
                         </td>
                         <td>
-                            <a href="index.php?page=insertForm" class="KiezButton_Adv">
-                                <i class="fa fa-times"></i> Löschen
-                            </a>
+                            <button onclick="return deleteAdv();" class="KiezButton_Adv">
+                                <i class="fa fa-times"> Löschen</i>
+                            </button>
+                            <input type="hidden" name="currAdv" value="<?php echo $rowADV['ADVID']; ?>" />
                         </td>
                     </tr>
                     <?php
                     } ?>
                     </tbody>
                 </table>
+                </form>
             </li>
             <?php
         }

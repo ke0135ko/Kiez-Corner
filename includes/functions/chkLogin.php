@@ -15,12 +15,10 @@ $row = mysqli_fetch_array($queryUser);
 if (($row["USERNAME"] == $username) && $row["PASSWORD"] == $password) {
 
     session_start();
-    session_name ('LOGGEDIN');
     $_SESSION["USERNAME"] = $username;
     $_SESSION["USERID"] = $row["USERID"];
-    $session = session_id();
     include "dbClose.php";
-    header('location: \Kiez-Corner\index.php?page=start');
+    header('location: ../../index.php?page=start');
 } else {
 
     echo "Ungültige Eingaben!";
