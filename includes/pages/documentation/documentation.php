@@ -172,7 +172,8 @@
        Des Weiteren wäre die Ausarbeitung eines umfangreicheren Designs eine offene Aufgabe, so z. B. die Ausgabe der Fehler in selbst gestalteten Meldungen
        oder eine Anmeldung mit Hilfe eines Modals.<br>
        Das Bewerbungsformular im Impressum ist aktuell ebenfalls nur eine Dummy-Implementation.<br>
-       Bezüglich der Datenbank fehlt die Implementation verschiedener Rollen, wie Administrator und Benutzer.
+       Bezüglich der Datenbank fehlt die Implementation verschiedener Rollen, wie Administrator und Benutzer.<br>
+       Der Name der Datenbank zum Import lautet "kiez corner".
     </p>
     <h4 id="Source">Quelle</h4>
     <ul><li><a href=http://3.bp.blogspot.com/-3E-4iOVPWL0/VZBY6uz7GvI/AAAAAAAAiAg/40-EerhstXI/s1600/DW_20150614_092053_44827_HD-2.jpg">Bild Dom Erfurt </a></li>

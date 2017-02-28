@@ -109,16 +109,21 @@ function validateZipLength()
     }
 }
 
-function deleteAdv()
+function deleteAdv(val)
 {
-    var ok = confirm("Möchtest du das Inserat wirklich löschen?");
-    if(ok === true)
-    {
-        window.location.href = "includes/functions/delete_advertisement.php";
-        
-    } 
-    else
-    {
+     document.getElementById("Advertisements"+val).action = "includes/functions/delete_advertisement.php";       
+}
+
+function openPic(val)
+{
+    if (val == undefined) {
+        alert("Es ist kein Bild verfügbar!");
         return false;
     }
+    else 
+    {
+        window.open(document.getElementById("picture").src);   
+        return true;
+    }
+
 }

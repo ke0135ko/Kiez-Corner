@@ -1,3 +1,6 @@
+
+<noscript>Diese Seite wird nur bei aktiviertem Javascript richtig angezeigt</noscript>
+
 <div class="div">
 
     <a href="index.php?page=insertForm" class="KiezButton_newAdv">
@@ -26,13 +29,13 @@
             ?>
             <!--each result is one list-item in the flex container-->
             <li>
-                <form action="index.php?page=modifyAdv" name="Advertisements" method="POST" enctype="multipart/form-data">
+                <form action="index.php?page=modifyAdv" name="Advertisements" id="Advertisements<?php echo $rowADV['ADVID']; ?>" method="POST" enctype="multipart/form-data">
                 <table class="tableAdvertisement">
                     <tbody>
                         <tr>
                             <td></td>
                             <td>
-                                <span><img id="picture" src ="uploadedImages/<?php echo $rowADV["TITLE"] . "." . $picType; ?>" onclick="window.open(this.src)" alt ="kein Bild verfügbar"></span>
+                                <span><img id="picture" src ="uploadedImages/<?php echo $rowADV["TITLE"] . "." . $picType; ?>" onclick="openPic(<?php echo $rowADV["ASSIGNED_ADV"]; ?>)" alt ="kein Bild verfügbar"></span>
                             </td>
                         </tr>
                         <tr>
@@ -74,7 +77,7 @@
                             <input type="hidden" name="currAdv" value="<?php echo $rowADV['ADVID']; ?>" />
                         </td>
                         <td>
-                            <button onclick="return deleteAdv();" class="KiezButton_Adv">
+                            <button onclick="deleteAdv(<?php echo $rowADV['ADVID']; ?>);" class="KiezButton_Adv">
                                 <i class="fa fa-times"> Löschen</i>
                             </button>
                             <input type="hidden" name="currAdv" value="<?php echo $rowADV['ADVID']; ?>" />
