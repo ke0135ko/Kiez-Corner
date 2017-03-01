@@ -91,7 +91,7 @@ function validateZip()
         return true;
     } else 
     {
-        alert("Die PLZ muss mit 990 beginnen und 5 Zeichen lang sein!" + zip_element.value);
+        alert("Die PLZ muss mit 990 beginnen und 5 Zeichen lang sein!");
         return false;
     }
 }

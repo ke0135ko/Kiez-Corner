@@ -36,7 +36,7 @@
                             <tr>
                                 <td></td>
                                 <td>
-<!--                                    window.open(this.src)-->
+                                    <?php echo $rowADV["ASSIGNED_ADV"]; ?>
                                     <span><img id="picture" src ="uploadedImages/<?php echo $rowADV["TITLE"] . "." . $picType; ?>" onclick="openPic(<?php echo $rowADV["ASSIGNED_ADV"]; ?>)" alt ="kein Bild verfügbar"></span>
                                 </td>
                             </tr>
