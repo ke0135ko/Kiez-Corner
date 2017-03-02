@@ -1,4 +1,4 @@
-<div class="div">
+<div>
     <?php
     if(!isset($_SESSION)) {
         session_start();

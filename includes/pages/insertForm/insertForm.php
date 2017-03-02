@@ -1,6 +1,6 @@
 <noscript>Diese Seite wird nur bei aktiviertem Javascript richtig angezeigt</noscript>
 
-<div class="div">
+<div>
     <?php
     //check for valid Session
     if (!isset($_SESSION["USERNAME"])) {

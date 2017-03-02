@@ -1,4 +1,4 @@
-<div class="div">
+<div>
     <h1>Unterstützung gesucht!</h1>
     <article style="text-align: center">
         <p>Zur Umsetzung und Fertigstellung weiterer Funktionalitäten suchen wir DICH als Unterstützung.<br>

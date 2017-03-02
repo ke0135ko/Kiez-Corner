@@ -6,7 +6,7 @@ $selectScore = "select grade from scoregrade";
 $findScore = mysqli_query($conn, $selectScore);
 ?>
 
-<div class="div">
+<div>
 
     <form name="search" action="index.php?page=search_result" method="POST" enctype="multipart/form-data" class="form">
         <fieldset>

@@ -1,4 +1,4 @@
-<div class="div">    
+<div>    
     <form action="includes/functions/chkLogin.php" name="validateLogin" method="POST" enctype="multipart/form-data" class="form">
         <fieldset>
             <legend>Anmeldung</legend>

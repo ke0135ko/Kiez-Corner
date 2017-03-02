@@ -1,4 +1,4 @@
-<div class="div">
+<div>
 <!--    <h3>Jetzt registrieren und 5 Kiez Punkte erhalten!</h3>-->
     <form action="index.php?page=registrate2" name="newRegistrate1" method="POST" class="form">
         <fieldset>

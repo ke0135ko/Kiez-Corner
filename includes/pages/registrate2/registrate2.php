@@ -1,6 +1,6 @@
 <noscript>Diese Seite wird nur bei aktiviertem Javascript richtig ausgeführt</noscript>
 
-<div class="div">
+<div>
     <?php
     if (!isset($_SESSION)) {
         session_start();

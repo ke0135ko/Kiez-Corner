@@ -1,7 +1,7 @@
 
 <noscript>Diese Seite wird nur bei aktiviertem Javascript richtig angezeigt</noscript>
 
-<div class="div">
+<div>
 
     <a href="index.php?page=insertForm" class="KiezButton_newAdv">
         <i class="fa fa-plus"> Neues Inserat</i>
@@ -36,7 +36,7 @@
                             <tr>
                                 <td></td>
                                 <td>
-                                    <?php echo $rowADV["ASSIGNED_ADV"]; ?>
+                                    
                                     <span><img id="picture" src ="uploadedImages/<?php echo $rowADV["TITLE"] . "." . $picType; ?>" onclick="openPic(<?php echo $rowADV["ASSIGNED_ADV"]; ?>)" alt ="kein Bild verfügbar"></span>
                                 </td>
                             </tr>
@@ -83,7 +83,6 @@
                             <button onclick="deleteAdv(<?php echo $rowADV['ADVID']; ?>);" class="KiezButton_Adv">
                                 <i class="fa fa-times"> Löschen</i>
                             </button>
-                            <input type="hidden" name="currAdv" value="<?php echo $rowADV['ADVID']; ?>" />
                         </td>
                     </tr>
                                 <?php }

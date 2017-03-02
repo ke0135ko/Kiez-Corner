@@ -8,7 +8,7 @@ $resultADV = mysqli_query($conn, $queryADV);
 $rowADV = mysqli_fetch_array($resultADV);
 
 ?>
-<div class="div">
+<div>
     
    <h3>Fülle die zu ändernden Felder aus:</h3>
             <div>
