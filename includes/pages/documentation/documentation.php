@@ -168,7 +168,7 @@
      
     <h4 id="Specifies">Besonderheiten</h4>
     <p>Aufgrund des unerwarteten Ausfalls des zweiten Teammitgliedes mitte Januar konnten leider nicht alle gewünschten Funktionen umgesetzt werden.<br>
-       So fehlt derzeitig die Implementierung für das Löschen eines Inserates, eine Profilverwaltung (aktuell nur die Anlage eines Accounts möglich) sowie
+       So fehlt derzeitig die Implementierung einer Profilverwaltung (aktuell nur die Anlage eines Accounts möglich) sowie
        die Integration einer Map für die Inserate. Diese sollte zu den jeweiligen Einträgen den Standort anzeigen.<br>
        Des Weiteren wäre die Ausarbeitung eines umfangreicheren Designs eine offene Aufgabe, so z. B. die Ausgabe der Fehler in selbst gestalteten Meldungen
        oder eine Anmeldung mit Hilfe eines Modals.<br>

@@ -1,5 +1,5 @@
 
-<noscript>Diese Seite wird nur bei aktiviertem Javascript richtig angezeigt</noscript>
+<noscript>Diese Seite wird nur bei aktiviertem Javascript richtig angezeigt und verarbeitet!</noscript>
 
 <div>
 
@@ -100,7 +100,7 @@
                             <input type="hidden" name="currAdv" value="<?php echo $rowAdvertisement['ADVID']; ?>" />
                         </td>
                         <td>
-                            <button onclick="deleteAdv(<?php echo $rowAdvertisement['ADVID']; ?>);" class="KiezButton_Adv">
+                            <button onclick="return deleteAdv(<?php echo $rowAdvertisement['ADVID']; ?>);" class="KiezButton_Adv">
                                 <i class="fa fa-times"> Löschen</i>
                             </button>
                         </td>

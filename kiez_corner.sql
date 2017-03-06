@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 28. Feb 2017 um 15:49
+-- Erstellungszeit: 06. Mrz 2017 um 20:42
 -- Server-Version: 10.1.16-MariaDB
 -- PHP-Version: 5.6.24
 
@@ -46,7 +46,7 @@ INSERT INTO `advertisements` (`ADVID`, `MEMBERID`, `ADVTYPE`, `HEADLINE`, `DESCR
 (5, 19010248, 'REQUEST', 'Fahrrad', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu', 99092, '0815-1234', 'test@mail.com', 5),
 (6, 19010248, 'OFFER', 'Bohrmaschine', 'Jemand musste Josef K.\r\n\r\nverleumdet haben, denn ohne dass er etwas BÃ¶ses getan hÃ¤tte, wurde er eines Morgens verhaftet. Â»Wie ein Hund! Â« sagte er, es ', 99084, '', 'mail@test.com', 5),
 (7, 15025145, 'OFFER', 'Angebot ohne Bild', 'Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Ma', 99090, '1234-5678', '', 1),
-(8, 15025145, 'REQUEST', 'Gesuch ohne Bild', 'Es gibt im Moment in diese Mannschaft, oh, einige Spieler vergessen ihnen Profi was sie sind. Ich lese nicht sehr viele Zeitungen, aber ich habe gehÃ¶rt viele Situationen. Erstens: wir haben nicht off', 99045, '', 'Max@Musterman.com', 8);
+(8, 15025145, 'REQUEST', 'Gesuch ohne Bild', 'Es gibt im Moment in diese Mannschaft, oh, einige Spieler vergessen ihnen Profi was sie sind. Ich lese nicht sehr viele Zeitungen, aber ich habe gehÃ¶rt viele Situationen. Erstens: wir haben nicht off', 99045, '', 'Max@Musterman.com', 5);
 
 -- --------------------------------------------------------
 
